@@ -1,0 +1,82 @@
+\documentclass[12pt]{report} % A betűméret 12-re és a dokumentum típus jelentés-re állítása.
+
+\usepackage[magyar]{babel} % A magyar nyelvi csomag betöltése.
+\usepackage[T1]{fontenc} % A kimeneti karakterkódolás T1-re állítása.
+\usepackage{times} % A Times New Roman betűtípus beállítása.
+\usepackage[utf8]{inputenc} % A karakterkódolás UTF8-ra állítása.
+\usepackage{fancyhdr} % A fejlécekhez és a láblécekhez használt csomag.
+\usepackage{graphicx} % A képek beillesztéséhez szükséges csomag.
+\usepackage{indentfirst} % Az első bekezdés automatikus behúzásához szükséges csomag.
+
+\hoffset -1in % A dokumentum vízszintes eltolása 1 inch-tel balra.
+\voffset -1in % A dokumentum függőleges eltolása 1 inch-tel felfelé.
+\oddsidemargin 35mm % A páratlan oldalak bal margójának beállítása 35 mm-re.
+\textwidth 150mm % A szöveg szélességének beállítása 150 mm-re.
+\topmargin 15mm % A felső margó beállítása 15 mm-re.
+\headheight 10mm % A fejléc magasságának beállítása 10 mm-re.
+\headsep 5mm % A fejléc és a szöveg közötti távolság beállítása 5 mm-re.
+\textheight 237mm % A szöveg magasságának beállítása 237 mm-re.
+
+\begin{document} % A dokumentum kezdete.
+
+% A fejezetek első oldalának stílusának testreszabása.
+\fancypagestyle{plain}{
+    \fancyhf{} % Törli az alapértelmezett fejlécet és láblécet.
+    \fancyfoot[R]{\raisebox{5mm}\thepage} % A lap számát a lábléc jobb oldalra rakja és 5mm-el feljebb tolja.
+    \renewcommand{\headrulewidth}{0pt} % Törli a fejléc vonalát.
+}
+
+\pagestyle{fancy} % A többi oldalnak a stílusának testreszabása.
+\fancyhf{} % Törli az alapértelmezett fejlécet és láblécet.
+\fancyhead[L]{Titkosítási módszerek a jövő Blokkláncai számára} % A fejléc bal oldalára a diplomamunka címének elhelyezése.
+\fancyfoot[R]{\raisebox{5mm}\thepage} % A lap számát a lábléc jobb oldalra rakja és 5mm-el feljebb tolja.
+
+\thispagestyle{empty} % Erről az oldalról törli a fejlécet és láblécet.
+
+\begin{center} % Vízszintesen középre igazítja a tartalmat.
+    \vspace*{1cm} % Függőleges térköz kötelező beszúrása.
+    {\Large\bf Szegedi Tudományegyetem}\\ % Nagy és félkövér szöveg.
+    \vspace{0.5cm} % Függőleges térköz beszúrása.
+    {\Large\bf Informatikai Intézet}\\ % Nagy és félkövér szöveg.
+    \vspace*{3.8cm} % Függőleges térköz kötelező beszúrása.
+    {\LARGE\bf Titkosítási módszerek a jövő Blokkláncai számára}\\ % Nagy és félkövér szöveg.
+    \vspace*{3.6cm} % Függőleges térköz kötelező beszúrása.
+    {\Large Szakdolgozat}\\ % Nagy szöveg.
+    \vspace*{4cm} % Függőleges térköz kötelező beszúrása.
+    {\large % Nagy szöveg.
+    \begin{tabular}{c@{\hspace{4cm}}c} % Két oszlop 4 cm-es térközzel.
+    \emph{Készítette:} &\emph{Témavezető:}\\ % Dőlt címkék.
+    \textbf{Molnár Gábor Ádám} &\textbf{Dr. Kertész Attila}\\ % Félkövér nevek.
+    informatika szakos &egyetemi docens\\ % Szak és beosztás kiírása.
+    hallgató& % Az utolsó sorban nincs második oszlopbeli tartalom.
+    \end{tabular}
+    }\\
+    \vspace*{2.3cm} % Függőleges térköz kötelező beszúrása.
+    {\Large % Nagy szöveg.
+    Szeged % Szeged kiírása.
+    \\ % Új sor
+    \vspace{2mm} % Függőleges térköz beszúrása.
+    2025 % Az évszám kiírása.
+    }
+\end{center} % A középre igazított blokk vége.
+
+\tableofcontents % Tartalomjegyzék beszúrása
+
+\chapter*{Feladatkiírás} % Sorszám nélküli fejezet létrehozása.
+\addcontentsline{toc}{chapter}{Feladatkiírás} % A fejezet hozzáadása a tartalomjegyzékhez.
+
+A felhő és blokklánc-alapú platformok iránti érdeklődés jelentősen megnőtt, ami az ellátási láncok racionalizálásában, a nyomon követhetőség javításában, a kereskedelem egyszerűsítésében és a pénzügyi tranzakciók hatékonyabbá tételében rejlő lehetőségüknek köszönhető. Ez a fellendülés a Bitcoin egyre népszerűvé válásával kezdődött, rávilágítva a régebbi blokklánc platformok energiafogyasztással és késleltetéssel kapcsolatos kihívásaira.
+\vspace{0.5cm}
+
+A modern blokklánc platformok ezen problémák megoldását célozták meg, és hatékonyabb módszereket nyújtanak a különböző üzleti alkalmazásoknak.
+\vspace{0.5cm}
+
+A blokklánc rendszerek egy fontos eleme a titkosítási algoritmusok alkalmazása. Napjainkban az SHA-256 algoritmust használják a tranzakciók és a hálózati kommunikáció biztonságossá tételére, de a szakirodalomban számos egyéb algoritmust is javasoltak bizonyos tulajdonságok javítására (pl. titkosítás erőssége, gyorsasága).
+\vspace{0.5cm}
+
+A szakdolgozó célja ezen szakirodalmi megoldások áttekintése, tanulmányozása, különös tekintettel a jövő blokklánc rendszerei és poszt-kvantum megoldásai tekintetében. További cél egy saját titkosítási algoritmus kifejlesztése és összehasonlítása teljesítménymérések elvégzésével, a szakirodalomban elérhető közeli megoldásokkal összevetve.
+
+\chapter*{Tartalmi összefoglaló} % Sorszám nélküli fejezet létrehozása.
+\addcontentsline{toc}{chapter}{Tartalmi összefoglaló} % A fejezet hozzáadása a tartalomjegyzékhez.
+
+\end{document} % A dokumentum vége.
