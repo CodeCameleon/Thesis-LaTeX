@@ -6,7 +6,6 @@
 \usepackage[utf8]{inputenc} % A karakterkódolás UTF8-ra állítása.
 \usepackage{fancyhdr} % A fejlécekhez és a láblécekhez használt csomag.
 \usepackage{graphicx} % A képek beillesztéséhez szükséges csomag.
-\usepackage{indentfirst} % Az első bekezdés automatikus behúzásához szükséges csomag.
 
 \hoffset -1in % A dokumentum vízszintes eltolása 1 inch-tel balra.
 \voffset -1in % A dokumentum függőleges eltolása 1 inch-tel felfelé.
@@ -22,14 +21,30 @@
 % A fejezetek első oldalának stílusának testreszabása.
 \fancypagestyle{plain}{
     \fancyhf{} % Törli az alapértelmezett fejlécet és láblécet.
-    \fancyfoot[R]{\raisebox{5mm}\thepage} % A lap számát a lábléc jobb oldalra rakja és 5mm-el feljebb tolja.
+    \fancyfoot[R]{\raisebox{6mm}\thepage} % A lap számát a lábléc jobb oldalra rakja és 6mm-el feljebb tolja.
     \renewcommand{\headrulewidth}{0pt} % Törli a fejléc vonalát.
 }
 
 \pagestyle{fancy} % A többi oldalnak a stílusának testreszabása.
 \fancyhf{} % Törli az alapértelmezett fejlécet és láblécet.
 \fancyhead[L]{Titkosítási módszerek a jövő Blokkláncai számára} % A fejléc bal oldalára a diplomamunka címének elhelyezése.
-\fancyfoot[R]{\raisebox{5mm}\thepage} % A lap számát a lábléc jobb oldalra rakja és 5mm-el feljebb tolja.
+\fancyfoot[R]{\raisebox{6mm}\thepage} % A lap számát a lábléc jobb oldalra rakja és 6mm-el feljebb tolja.
+
+\thispagestyle{empty} % Erről az oldalról törli a fejlécet és láblécet.
+
+\begin{center} % Vízszintesen középre igazítja a tartalmat.
+    {\Large\bf Szegedi Tudományegyetem}\\ % Nagy és félkövér szöveg.
+    \vspace{0.5cm} % Függőleges térköz beszúrása.
+    {\Large\bf Informatikai Intézet}\\ % Nagy és félkövér szöveg.
+    \vspace*{8.5cm} % Függőleges térköz kötelező beszúrása.
+    {\Huge\bf SZAKDOLGOZAT}\\ % Óriási és félkövér szöveg.
+    \vspace*{7cm} % Függőleges térköz kötelező beszúrása.
+    {\Large\bf Molnár Gábor Ádám}\\ % Nagy és félkövér szöveg.
+    \vspace*{0.6cm} % Függőleges térköz kötelező beszúrása.
+    {\Large\bf 2025} % Nagy és félkövér szöveg.
+\end{center} % A középre igazított blokk vége.
+
+\newpage % Új oldalt kezd.
 
 \thispagestyle{empty} % Erről az oldalról törli a fejlécet és láblécet.
 
@@ -46,7 +61,7 @@
     {\large % Nagy szöveg.
     \begin{tabular}{c@{\hspace{4cm}}c} % Két oszlop 4 cm-es térközzel.
     \emph{Készítette:} &\emph{Témavezető:}\\ % Dőlt címkék.
-    \textbf{Molnár Gábor Ádám} &\textbf{Dr. Kertész Attila}\\ % Félkövér nevek.
+    \textbf{Molnár Gábor Ádám} &\textbf{Dr. habil. Kertész Attila}\\ % Félkövér nevek.
     informatika szakos &egyetemi docens\\ % Szak és beosztás kiírása.
     hallgató& % Az utolsó sorban nincs második oszlopbeli tartalom.
     \end{tabular}
@@ -65,16 +80,7 @@
 \chapter*{Feladatkiírás} % Sorszám nélküli fejezet létrehozása.
 \addcontentsline{toc}{chapter}{Feladatkiírás} % A fejezet hozzáadása a tartalomjegyzékhez.
 
-A felhő és blokklánc-alapú platformok iránti érdeklődés jelentősen megnőtt, ami az ellátási láncok racionalizálásában, a nyomon követhetőség javításában, a kereskedelem egyszerűsítésében és a pénzügyi tranzakciók hatékonyabbá tételében rejlő lehetőségüknek köszönhető. Ez a fellendülés a Bitcoin egyre népszerűvé válásával kezdődött, rávilágítva a régebbi blokklánc platformok energiafogyasztással és késleltetéssel kapcsolatos kihívásaira.
-\vspace{0.5cm}
-
-A modern blokklánc platformok ezen problémák megoldását célozták meg, és hatékonyabb módszereket nyújtanak a különböző üzleti alkalmazásoknak.
-\vspace{0.5cm}
-
-A blokklánc rendszerek egy fontos eleme a titkosítási algoritmusok alkalmazása. Napjainkban az SHA-256 algoritmust használják a tranzakciók és a hálózati kommunikáció biztonságossá tételére, de a szakirodalomban számos egyéb algoritmust is javasoltak bizonyos tulajdonságok javítására (pl. titkosítás erőssége, gyorsasága).
-\vspace{0.5cm}
-
-A szakdolgozó célja ezen szakirodalmi megoldások áttekintése, tanulmányozása, különös tekintettel a jövő blokklánc rendszerei és poszt-kvantum megoldásai tekintetében. További cél egy saját titkosítási algoritmus kifejlesztése és összehasonlítása teljesítménymérések elvégzésével, a szakirodalomban elérhető közeli megoldásokkal összevetve.
+A felhő és blokklánc-alapú platformok iránti érdeklődés jelentősen megnőtt, ami az ellátási láncok racionalizálásában, a nyomon követhetőség javításában, a kereskedelem egyszerűsítésében és a pénzügyi tranzakciók hatékonyabbá tételében rejlő lehetőségüknek köszönhető. Ez a fellendülés a Bitcoin egyre népszerűvé válásával kezdődött, rávilágítva a régebbi blokklánc platformok energiafogyasztással és késleltetéssel kapcsolatos kihívásaira. A modern blokklánc platformok ezen problémák megoldását célozták meg, és hatékonyabb módszereket nyújtanak a különböző üzleti alkalmazásoknak. A blokklánc rendszerek egy fontos eleme a titkosítási algoritmusok alkalmazása. Napjainkban az SHA-256 algoritmust használják a tranzakciók és a hálózati kommunikáció biztonságossá tételére, de a szakirodalomban számos egyéb algoritmust is javasoltak bizonyos tulajdonságok javítására (például titkosítás erőssége, gyorsasága). A szakdolgozó célja ezen szakirodalmi megoldások áttekintése, tanulmányozása, különös tekintettel a jövő blokklánc rendszerei és poszt-kvantum megoldásai tekintetében. További cél egy saját titkosítási algoritmus kifejlesztése és összehasonlítása teljesítménymérések elvégzésével, a szakirodalomban elérhető közeli megoldásokkal összevetve.
 
 \chapter*{Tartalmi összefoglaló} % Sorszám nélküli fejezet létrehozása.
 \addcontentsline{toc}{chapter}{Tartalmi összefoglaló} % A fejezet hozzáadása a tartalomjegyzékhez.
