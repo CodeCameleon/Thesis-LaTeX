@@ -6,6 +6,7 @@
 \usepackage[utf8]{inputenc} % A karakterkódolás UTF8-ra állítása.
 \usepackage{fancyhdr} % A fejlécekhez és a láblécekhez használt csomag.
 \usepackage{graphicx} % A képek beillesztéséhez szükséges csomag.
+\usepackage{titlesec} % A címformázáshoz szükséges csomag.
 
 \hoffset -1in % A dokumentum vízszintes eltolása 1 inch-tel balra.
 \voffset -1in % A dokumentum függőleges eltolása 1 inch-tel felfelé.
@@ -18,6 +19,11 @@
 
 \begin{document} % A dokumentum kezdete.
 
+% A fejezetek formázásának módosítása.
+\titleformat{\chapter}[hang] % Ez biztosítja a hagyományos elrendezést.
+  {\normalfont\huge\bfseries} % A fejezet címe nagy méretű, félkövér betűtípussal jelenik meg.
+  {\thechapter.}{1em}{} % A fejezet száma ponttal elválasztva jelenik meg, a cím közvetlenül utána következik.
+
 % A fejezetek első oldalának stílusának testreszabása.
 \fancypagestyle{plain}{
     \fancyhf{} % Törli az alapértelmezett fejlécet és láblécet.
@@ -27,7 +33,7 @@
 
 \pagestyle{fancy} % A többi oldalnak a stílusának testreszabása.
 \fancyhf{} % Törli az alapértelmezett fejlécet és láblécet.
-\fancyhead[L]{Titkosítási módszerek a jövő Blokkláncai számára} % A fejléc bal oldalára a diplomamunka címének elhelyezése.
+\fancyhead[L]{Titkosítási módszerek a jövő blokkláncai számára} % A fejléc bal oldalára a diplomamunka címének elhelyezése.
 \fancyfoot[R]{\raisebox{6mm}\thepage} % A lap számát a lábléc jobb oldalra rakja és 6mm-el feljebb tolja.
 
 \thispagestyle{empty} % Erről az oldalról törli a fejlécet és láblécet.
@@ -54,7 +60,7 @@
     \vspace{0.5cm} % Függőleges térköz beszúrása.
     {\Large\bf Informatikai Intézet}\\ % Nagy és félkövér szöveg.
     \vspace*{3.8cm} % Függőleges térköz kötelező beszúrása.
-    {\LARGE\bf Titkosítási módszerek a jövő Blokkláncai számára}\\ % Nagy és félkövér szöveg.
+    {\LARGE\bf Titkosítási módszerek a jövő blokkláncai számára}\\ % Nagy és félkövér szöveg.
     \vspace*{3.6cm} % Függőleges térköz kötelező beszúrása.
     {\Large Szakdolgozat}\\ % Nagy szöveg.
     \vspace*{4cm} % Függőleges térköz kötelező beszúrása.
@@ -85,28 +91,48 @@ A felhő és blokklánc-alapú platformok iránti érdeklődés jelentősen megn
 \chapter*{Tartalmi összefoglaló} % Sorszám nélküli fejezet létrehozása.
 \addcontentsline{toc}{chapter}{Tartalmi összefoglaló} % A fejezet hozzáadása a tartalomjegyzékhez.
 
-\section*{A téma megnevezése} % Sorszám nélküli címsor létrehozása.
+\section*{A téma megnevezése} % Sorszám nélküli alcím létrehozása.
 
 Titkosítási módszerek a jövő blokkláncai számára és ezek összehasonlítása.
 
-\section*{A megadott feladat megfogalmazása} % Sorszám nélküli címsor létrehozása.
+\section*{A megadott feladat megfogalmazása} % Sorszám nélküli alcím létrehozása.
 
 A feladat a különbező titkosítási algoritmusok összehasonlítás, különböző szempontok alapján. Továbbá egy saját algoritmus fejlesztése és összehasonlítás a már létező és aktívan használt algoritmusokkal.
 
-\section*{Megoldási mód} % Sorszám nélküli címsor létrehozása.
+\section*{Megoldási mód} % Sorszám nélküli alcím létrehozása.
 
 Egy grafikus felülettel rendelkező alkalmazás elkészítése, amelyen könnyedén lehet futtatni Unit teszteket a különböző algoritmusokra. Valamint alkalmas az eredmények áttekinthető kimutatására.
 
-\section*{Alkalmazott eszközök, módszerek} % Sorszám nélküli címsor létrehozása.
+\section*{Alkalmazott eszközök, módszerek} % Sorszám nélküli alcím létrehozása.
 
 Az alkalmazás egy ASP.NET Core webalkalmazás lett. A tesztek futtatására az NUnit csomagot használja, a megjelenítésre pedig a Chart.js csomagot. Az eredményeket egy SQLite adatbázisban tárolja.
 
-\section*{Elért eredmények} % Sorszám nélküli címsor létrehozása.
+\section*{Elért eredmények} % Sorszám nélküli alcím létrehozása.
 
 Egy teljesen működő és tesztelésre alkalmas webalkalmazás. Továbbá egy saját szimmetrikus titkosítási algoritmus C\# megvalósítása.
 
-\section*{Kulcsszavak} % Sorszám nélküli címsor létrehozása.
+\section*{Kulcsszavak} % Sorszám nélküli alcím létrehozása.
 
 C\#, ASP.NET Core, NUnit, Chart.js, blokkláncok, kriptográfia
+
+\chapter{Bevezetés} % Sorszámozott fejezet létrehozása.
+
+\section{Motiváció} % Sorszámozott alcím létrehozása.
+
+\chapter{Felhasznált technológiák} % Sorszámozott fejezet létrehozása.
+
+\chapter{Architekturális terv} % Sorszámozott fejezet létrehozása.
+
+\chapter{Megvalósítás} % Sorszámozott fejezet létrehozása.
+
+\chapter{Saját algoritmus} % Sorszámozott fejezet létrehozása.
+
+\chapter{Teszteredmények} % Sorszámozott fejezet létrehozása.
+
+\chapter{Összefoglalás} % Sorszámozott fejezet létrehozása.
+
+\chapter{Irodalomjegyzék} % Sorszámozott fejezet létrehozása.
+
+\chapter{Nyilatkozat} % Sorszámozott fejezet létrehozása.
 
 \end{document} % A dokumentum vége.
