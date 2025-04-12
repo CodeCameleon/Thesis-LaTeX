@@ -1,5 +1,7 @@
 \documentclass[12pt]{report} % A betűméret 12-re és a dokumentum típus jelentés-re állítása.
 
+\def\magyarOptions{defaults=hu-min} % Konfigurálja a magyar nyelvi beállításokat minimális szabályokkal.
+
 \usepackage[magyar]{babel} % A magyar nyelvi csomag betöltése.
 \usepackage[T1]{fontenc} % A kimeneti karakterkódolás T1-re állítása.
 \usepackage{times} % A Times New Roman betűtípus beállítása.
@@ -8,15 +10,12 @@
 \usepackage{graphicx} % A képek beillesztéséhez szükséges csomag.
 \usepackage{titlesec} % A címformázáshoz szükséges csomag.
 \usepackage{parskip} % Kikapcsolja az automatikus paragrafus bekezdéseket.
+\usepackage{setspace} % A sortávolság beállításához szükséges csomag.
+\usepackage[a4paper, left=25mm, top=25mm, right=25mm, bottom= 25mm]{geometry} % PDF-hez igazított, szimmetrikus 2,5 cm margók minden oldalon.
 
-\hoffset -1in % A dokumentum vízszintes eltolása 1 inch-tel balra.
-\voffset -1in % A dokumentum függőleges eltolása 1 inch-tel felfelé.
-\oddsidemargin 35mm % A páratlan oldalak bal margójának beállítása 35 mm-re.
-\textwidth 150mm % A szöveg szélességének beállítása 150 mm-re.
-\topmargin 15mm % A felső margó beállítása 15 mm-re.
-\headheight 10mm % A fejléc magasságának beállítása 10 mm-re.
-\headsep 5mm % A fejléc és a szöveg közötti távolság beállítása 5 mm-re.
-\textheight 237mm % A szöveg magasságának beállítása 237 mm-re.
+\onehalfspacing % A másfeles sortávolság beállítása.
+
+\setlength{\headheight}{14.5pt} % Növeljük a fejléc magasságát.
 
 \begin{document} % A dokumentum kezdete.
 
@@ -25,17 +24,20 @@
   {\normalfont\huge\bfseries} % A fejezet címe nagy méretű, félkövér betűtípussal jelenik meg.
   {\thechapter.}{1em}{} % A fejezet száma ponttal elválasztva jelenik meg, a cím közvetlenül utána következik.
 
+\titlespacing*{\chapter}{0pt}{-20pt}{\baselineskip} % A fejezetek előtti és utáni térközök beállítása.
+
 % A fejezetek első oldalának stílusának testreszabása.
 \fancypagestyle{plain}{
     \fancyhf{} % Törli az alapértelmezett fejlécet és láblécet.
-    \fancyfoot[R]{\raisebox{4mm}\thepage} % A lap számát a lábléc jobb oldalra rakja és feljebb tolja.
-    \renewcommand{\headrulewidth}{0pt} % Törli a fejléc vonalát.
+    \fancyhead[L]{Titkosítási módszerek a jövő blokkláncai számára} % A fejléc bal oldalára a diplomamunka címének elhelyezése.
+    \fancyfoot[R]{\thepage} % A lap számát a lábléc jobb oldalra rakja.
+    %\renewcommand{\headrulewidth}{0pt} % Törli a fejléc vonalát.
 }
 
 \pagestyle{fancy} % A többi oldalnak a stílusának testreszabása.
 \fancyhf{} % Törli az alapértelmezett fejlécet és láblécet.
 \fancyhead[L]{Titkosítási módszerek a jövő blokkláncai számára} % A fejléc bal oldalára a diplomamunka címének elhelyezése.
-\fancyfoot[R]{\raisebox{4mm}\thepage} % A lap számát a lábléc jobb oldalra rakja és feljebb tolja.
+\fancyfoot[R]{\thepage} % A lap számát a lábléc jobb oldalra rakja.
 
 \thispagestyle{empty} % Erről az oldalról törli a fejlécet és láblécet.
 
