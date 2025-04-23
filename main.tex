@@ -11,7 +11,27 @@
 \usepackage{titlesec} % A címformázáshoz szükséges csomag.
 \usepackage{parskip} % Kikapcsolja az automatikus paragrafus bekezdéseket.
 \usepackage{setspace} % A sortávolság beállításához szükséges csomag.
+\usepackage{xcolor} % A színezéshez szükséges csomag.
+\usepackage{csquotes} % A nyelvfüggő szövegekhez szükséges csomag.
+\usepackage[hidelinks]{hyperref} % A linkekhez szükséges csomag.
+\usepackage[backend=biber, style=numeric]{biblatex} % Az irodalmak számozott hivatkozásához szükséges csomag.
 \usepackage[a4paper, left=25mm, top=25mm, right=25mm, bottom= 25mm]{geometry} % PDF-hez igazított, szimmetrikus 2,5 cm margók minden oldalon.
+
+\addbibresource{references.bib} % Az irodalomjegyzék forrásainak megadása.
+
+\renewcommand*{\bibfont}{\normalfont\fontsize{10}{12}\selectfont} % A betűméret 10-re, a sormagasságot pedig 12-re állítja az irodalomjegyzékben.
+
+\setlength\bibitemsep{\baselineskip} % Az irodalomjegyzék sortávolságának beállítása.
+
+% A magyar irodalomjegyzék beállítása.
+\DefineBibliographyStrings{magyar}{
+  url = {Elérhetőség:},
+  urlseen = {Utolsó megtekintés dátuma:},
+}
+
+\DeclareFieldFormat{url}{\bibstring{url}\addcolon\space\href{#1}{\textcolor{blue}{\underline{#1}}}} % Megformázza az URL-t az irodalomjegyzékben.
+
+\DeclareFieldFormat{urldate}{\bibstring{urlseen}\addcolon\space#1} % Megformázza a megtekintés dátumát az irodalomjegyzékben.
 
 \onehalfspacing % A másfeles sortávolság beállítása.
 
@@ -169,7 +189,7 @@ A szakdolgozatot a .NET 8-as verziójában írtam. Amikor elkezdtem a fejleszté
 
 \section{ASP.NET Core} % Sorszámozott alcím létrehozása.
 
-Tapasztalataim alapján a manapság leginkább használt C\# alapú webalkalmazás típus egyike az ASP.NET Core. Ezen belül megkülönböztetjük a Razor és az MVC fajtát, én inkább az MVC-t szertem használni. Nekem ez a tervezi minta jobban átlátható. Mivel a nyelvet már eldöntöttem, ezért itt már nem volt olyan sok választási lehetőségem. De ez egy cseppet sem zavart. Nincs semmi bajom az ASP.NET Core alkalmazásokkal. Szerintem kifejezetten egyszerűen és gyorsan felépíthetőek. Részben ezért is esett a választásom a webalkalmazásra. Úgy gondolom, hogy ha szükség van egy grafikus felhasználói felületre, akkor fejlesztési sebesség szerint a webalkalmazások a leggyorsabban elkészíthetőek.
+Tapasztalataim alapján a manapság leginkább használt C\# alapú webalkalmazás típus egyike az ASP.NET Core \cite{aspNetCore}. Ezen belül megkülönböztetjük a Razor és az MVC fajtát, én inkább az MVC-t szertem használni. Nekem ez a tervezi minta jobban átlátható. Mivel a nyelvet már eldöntöttem, ezért itt már nem volt olyan sok választási lehetőségem. De ez egy cseppet sem zavart. Nincs semmi bajom az ASP.NET Core alkalmazásokkal. Szerintem kifejezetten egyszerűen és gyorsan felépíthetőek. Részben ezért is esett a választásom a webalkalmazásra. Úgy gondolom, hogy ha szükség van egy grafikus felhasználói felületre, akkor fejlesztési sebesség szerint a webalkalmazások a leggyorsabban elkészíthetőek.
 
 \section{NUnit} % Sorszámozott alcím létrehozása.
 
@@ -243,6 +263,8 @@ Verziókövetésre Git-et használtam. Leginkább azért, mert ez az egyetlen ve
 
 \chapter*{Irodalomjegyzék} % Sorszámozott fejezet létrehozása.
 \addcontentsline{toc}{chapter}{Irodalomjegyzék} % A fejezet hozzáadása a tartalomjegyzékhez.
+
+\printbibliography[heading=none] % A citerált irodalmak kilistázása.
 
 \chapter*{Nyilatkozat} % Sorszámozott fejezet létrehozása.
 \addcontentsline{toc}{chapter}{Nyilatkozat} % A fejezet hozzáadása a tartalomjegyzékhez.
