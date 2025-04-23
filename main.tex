@@ -14,7 +14,7 @@
 \usepackage{xcolor} % A színezéshez szükséges csomag.
 \usepackage{csquotes} % A nyelvfüggő szövegekhez szükséges csomag.
 \usepackage[hidelinks]{hyperref} % A linkekhez szükséges csomag.
-\usepackage[backend=biber, style=numeric]{biblatex} % Az irodalmak számozott hivatkozásához szükséges csomag.
+\usepackage[backend=biber, style=numeric, sorting=none]{biblatex} % Az irodalmak számozott hivatkozásához szükséges csomag.
 \usepackage[a4paper, left=25mm, top=25mm, right=25mm, bottom= 25mm]{geometry} % PDF-hez igazított, szimmetrikus 2,5 cm margók minden oldalon.
 
 \addbibresource{references.bib} % Az irodalomjegyzék forrásainak megadása.
@@ -29,9 +29,9 @@
   urlseen = {Utolsó megtekintés dátuma:},
 }
 
-\DeclareFieldFormat{url}{\bibstring{url}\addcolon\space\href{#1}{\textcolor{blue}{\underline{#1}}}} % Megformázza az URL-t az irodalomjegyzékben.
+\DeclareFieldFormat{url}{\\\bibstring{url}\addcolon\space\href{#1}{\textcolor{blue}{\underline{#1}}}} % Megformázza az URL-t az irodalomjegyzékben.
 
-\DeclareFieldFormat{urldate}{\bibstring{urlseen}\addcolon\space#1} % Megformázza a megtekintés dátumát az irodalomjegyzékben.
+\DeclareFieldFormat{urldate}{\\\bibstring{urlseen}\addcolon\space#1} % Megformázza a megtekintés dátumát az irodalomjegyzékben.
 
 \onehalfspacing % A másfeles sortávolság beállítása.
 
@@ -157,7 +157,7 @@ Ebben a szakdolgozatban megpróbálom részletesen összehasonlítani az ismerte
 
 Az emberek szeretik biztonságban tudni a bizalmas dolgaikat. Legyen az egy betöréses támadás vagy egyszerű adatküldés esetén. Ez a probléma ihlette meg a kriptográfiai algoritmusokat. Egy ilyen algoritmus egy nyílt szöveget vár bemenetként, majd egy kulcs segítségével egy titkosított szöveget hozz létre a kapott szövegből. Ez minden kriptográfiai algoritmus alapelve.
 
-Fontos kiemelni, hogy a kriptográfiai algoritmusokat több módon tudjuk csoportosítani. Az első lehetőség az, hogy az elvégzett műveletek alapján csoportosítjuk őket. Így megkülönböztetjük a keverő, helyettesítő és produkciós titkosító algoritmusokat.
+Fontos kiemelni, hogy a kriptográfiai algoritmusokat \cite{szteCryptography} több módon tudjuk csoportosítani. Az első lehetőség az, hogy az elvégzett műveletek alapján csoportosítjuk őket. Így megkülönböztetjük a keverő, helyettesítő és produkciós titkosító algoritmusokat.
 
 A keverő algoritmusoknál a titkosított szöveg egyszerűen az eredeti szöveg karaktereinek permutációja. Értelem szerűen ez nem nyújtja a legnagyobb biztonságot. Tekintve, hogy a permutáció lehet akár az eredeti szöveg is. Igaz, ez inkább a rövid szövegek esetén valószínűbb, hogy bekövetkezik.
 
@@ -183,7 +183,7 @@ A szakdolgozat többi részében konkrét szimmetrikus, aszimmetrikus és hasít
 
 \section{C\#} % Sorszámozott alcím létrehozása.
 
-Azért választottam a C\# nyelvet, mivel jelenleg is ebben dolgozom a BerényiSoftware Tanácsadó és Szolgáltató Kft. cégnél. Úgy gondolom ebben a nyelvben vagyok a legjártasabb. Már volt szerencsém egy pár alkalmazást elkészíteni benne a cég megbízásából. Ezeknek a pontos mivoltába nem megyek bele, mivel köt a céges titoktartás. A lényeg az, hogy már fejlesztettem benne webalkalmazást, mobilalkalmazást valamint háttér szolgáltatást is. Továbbá ez egyik egyetemi kurzus keretein belül már egy egyszerű játékot is készítettem. Ezért tartom számomra a legalkalmasabb nyelvnek bármilyen jellegű alkalmazás fejlesztésére.
+Azért választottam a C\# \cite{cSharp} nyelvet, mivel jelenleg is ebben dolgozom a BerényiSoftware Tanácsadó és Szolgáltató Kft. cégnél. Úgy gondolom ebben a nyelvben vagyok a legjártasabb. Már volt szerencsém egy pár alkalmazást elkészíteni benne a cég megbízásából. Ezeknek a pontos mivoltába nem megyek bele, mivel köt a céges titoktartás. A lényeg az, hogy már fejlesztettem benne webalkalmazást, mobilalkalmazást valamint háttér szolgáltatást is. Továbbá ez egyik egyetemi kurzus keretein belül már egy egyszerű játékot is készítettem. Ezért tartom számomra a legalkalmasabb nyelvnek bármilyen jellegű alkalmazás fejlesztésére.
 
 A szakdolgozatot a .NET 8-as verziójában írtam. Amikor elkezdtem a fejlesztést, akkor még ez volt a legfrissebb verzió. Azóta már megjelent a 9-es verzió is. Viszont nem láttam különösebb indokot, hogy átvigyem a projektet az új verzióra. Ezért maradt a 8-as verzión.
 
@@ -193,19 +193,19 @@ Tapasztalataim alapján a manapság leginkább használt C\# alapú webalkalmaz�
 
 \section{NUnit} % Sorszámozott alcím létrehozása.
 
-Azt mondanám, hogy a három leggyakrabban használt Unit teszt csomag C\#-ban az NUnit, xUnit.net és az MSTest. A cég ahol dolgozom, az NUnit-ot használja. Ez nagyban befolyásolta a döntésemet ennél a választásnál. Ugyan még nem kellet különösen foglalkoznom vele a céges munkáim során. Akkor is ezt tartottam a legmegfelelőbbnek. Tekintve, hogy bármikor segítséget tudok kérni a cégnél dolgozó tesztelőktől. Valamint nem gondolom, hogy a cég véletlenül használja pont az NUnit-ot. Hiszen létezik más Unit tesztelésre alkalmas csomag is. Visszatekintve nem bántam meg a választásomat. Semmilyen jellegű problémába nem ütköztem a használata során.
+Azt mondanám, hogy a három leggyakrabban használt Unit teszt csomag C\#-ban az NUnit, xUnit.net és az MSTest. A cég ahol dolgozom, az NUnit-ot \cite{nUnit} használja. Ez nagyban befolyásolta a döntésemet ennél a választásnál. Ugyan még nem kellet különösen foglalkoznom vele a céges munkáim során. Akkor is ezt tartottam a legmegfelelőbbnek. Tekintve, hogy bármikor segítséget tudok kérni a cégnél dolgozó tesztelőktől. Valamint nem gondolom, hogy a cég véletlenül használja pont az NUnit-ot. Hiszen létezik más Unit tesztelésre alkalmas csomag is. Visszatekintve nem bántam meg a választásomat. Semmilyen jellegű problémába nem ütköztem a használata során.
 
 \section{Chart.js} % Sorszámozott alcím létrehozása.
 
-A Chart.js egy nagyon népszerű JavaScript csomag. Kiválóan alkalmas rengeteg különféle diagram kirajzolására. Legyen az statikus vagy interaktív, támogatja minden a kétféle grafikonfajtát. Ami még nagyon hasznos tud lenni benne, az a lehetőség, hogy akár több különböző grafikonfajtát is megjelenítsen egyetlen diagramon. Ennek a funkciónak én is nagy hasznát vettem. Szerintem egy kiváló választás bármilyen jellegű webalkalmazásban, ahol diagramok megjelenítése szükséges. A használata is egyszerű, egy kezdő programozó is könnyedén tudja integrálni az alkalmazásába. De ha netán elakadna, a hivatalos oldalukon lévő dokumentáció rendkívül részletes. A fogalmazásmódja érthető, nem túl bonyolított. Példa kódokat is tartalmaz. Nekem nem sikerült semmilyen megoldhatatlan problémába ütköznöm a csomag használata során. Ezért mindenkinek csak ajánlani tudom.
+A Chart.js \cite{chartJs} egy nagyon népszerű JavaScript csomag. Kiválóan alkalmas rengeteg különféle diagram kirajzolására. Legyen az statikus vagy interaktív, támogatja minden a kétféle grafikonfajtát. Ami még nagyon hasznos tud lenni benne, az a lehetőség, hogy akár több különböző grafikonfajtát is megjelenítsen egyetlen diagramon. Ennek a funkciónak én is nagy hasznát vettem. Szerintem egy kiváló választás bármilyen jellegű webalkalmazásban, ahol diagramok megjelenítése szükséges. A használata is egyszerű, egy kezdő programozó is könnyedén tudja integrálni az alkalmazásába. De ha netán elakadna, a hivatalos oldalukon lévő dokumentáció rendkívül részletes. A fogalmazásmódja érthető, nem túl bonyolított. Példa kódokat is tartalmaz. Nekem nem sikerült semmilyen megoldhatatlan problémába ütköznöm a csomag használata során. Ezért mindenkinek csak ajánlani tudom.
 
 \section{BouncyCastle.Cryptography} % Sorszámozott alcím létrehozása.
 
-Erre a csomagra azért volt szükség, mert az alap .NET környezetben elég kevés titkosító algoritmus van megvalósítva. Ez volt az első alkalom, hogy BouncyCastle-tól használtam egy csomagot. Egy rövid fórum olvasás után kiderítettem, hogy egy elég jól elfogadott csapatról van szó. Valamint nem is csak C\# nyelvre, hanem Java-ra is fejlesztenek csomagokat. A C\# megvalósításuk teljesen jól működik, nem volt vele semmi probléma. A dokumentációjuk viszont lehetne egy kicsit felhasználó barátabb. Nem mindig találtam meg benne amit kerestem. Én azzal a véleménnyel vagyok, hogy ha egy fórumról gyorsabban megtalálom a nekem szükséges információt, akkor a hivatalos dokumentációnak van még hova fejlődnie. Szerencsére csak egy-két dolog volt, amit meg kellet keresnem a dokumentációban. Mindent összegezve, nem egy rossz csomag. Nem bántam meg, hogy ezt választottam.
+Erre a csomagra azért volt szükség, mert az alap .NET környezetben elég kevés titkosító algoritmus van megvalósítva. Ez volt az első alkalom, hogy BouncyCastle-tól \cite{bouncyCastle} használtam egy csomagot. Egy rövid fórum olvasás után kiderítettem, hogy egy elég jól elfogadott csapatról van szó. Valamint nem is csak C\# nyelvre, hanem Java-ra is fejlesztenek csomagokat. A C\# megvalósításuk teljesen jól működik, nem volt vele semmi probléma. A dokumentációjuk viszont lehetne egy kicsit felhasználó barátabb. Nem mindig találtam meg benne amit kerestem. Én azzal a véleménnyel vagyok, hogy ha egy fórumról gyorsabban megtalálom a nekem szükséges információt, akkor a hivatalos dokumentációnak van még hova fejlődnie. Szerencsére csak egy-két dolog volt, amit meg kellet keresnem a dokumentációban. Mindent összegezve, nem egy rossz csomag. Nem bántam meg, hogy ezt választottam.
 
 \section{Git, GitHub, GitLab} % Sorszámozott alcím létrehozása.
 
-Verziókövetésre Git-et használtam. Leginkább azért, mert ez az egyetlen verziókövető amit ismerek és aktívan használok. Az egyetemen is csak ezt kérték mindig tőlünk. Valamint a cégben is csak ezt használjuk. Nem akartam most egy teljesen új verziókövetőt kipróbálni. Ezért maradtam a már jól bevált Git-nél. A projektet feltöltöttem az egyetemi GitLab-ra, hogy a témavezetőm könnyedén hozzáférhessen. A GitLab hibajegy kezelő részét ebben a projektben nem vettem igénybe, mivel egyedül én dolgoztam rajta. A GitFlow-t is feleslegesnek éreztem. A biztonság kedvért a saját GitHub fiókomra is feltöltöttem. Semmi esetre sem szerettem volna elveszíteni az eddigi munkámat. Ezért láttam észerűnek három helyen tartani az egész projekt kódját. Szerencsére nem tapasztaltam hardver problémát a fejlesztés alatt. Egyszer sem kellet a szerveren lévő másolatról újra építeni a projektet. A verziókövetést illetően sem volt semmilyen jellegű problémám.
+Verziókövetésre Git-et \cite{git} használtam. Leginkább azért, mert ez az egyetlen verziókövető amit ismerek és aktívan használok. Az egyetemen is csak ezt kérték mindig tőlünk. Valamint a cégben is csak ezt használjuk. Nem akartam most egy teljesen új verziókövetőt kipróbálni. Ezért maradtam a már jól bevált Git-nél. A projektet feltöltöttem az egyetemi GitLab-ra \cite{gitLab}, hogy a témavezetőm könnyedén hozzáférhessen. A GitLab hibajegy kezelő részét ebben a projektben nem vettem igénybe, mivel egyedül én dolgoztam rajta. A GitFlow-t is feleslegesnek éreztem. A biztonság kedvért a saját GitHub \cite{gitHub} fiókomra is feltöltöttem. Semmi esetre sem szerettem volna elveszíteni az eddigi munkámat. Ezért láttam észerűnek három helyen tartani az egész projekt kódját. Szerencsére nem tapasztaltam hardver problémát a fejlesztés alatt. Egyszer sem kellet a szerveren lévő másolatról újra építeni a projektet. A verziókövetést illetően sem volt semmilyen jellegű problémám.
 
 \chapter{Architekturális terv} % Sorszámozott fejezet létrehozása.
 
