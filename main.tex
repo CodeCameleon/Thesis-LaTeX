@@ -129,11 +129,31 @@ C\#, ASP.NET Core, NUnit, Chart.js, blokkláncok, kriptográfia
 
 Mindig is akartam valami maradandót alkotni. Valami olyat, ami nem csak egy kézzel fogható tárgy. Valamit, amire mindig büszkén tudok visszanézi. Még akkor is ha nem a legtökéletesebb munkám lenne. Egy olyan eszmei értéket, amit bárki tud használni kedve szerint. Talán úgy ahogy én elképzeltem. De az is lehet, hogy csak alapul használják és javítanak rajta. Már ez is nagy öröm lenne számomra. Mert látnám, hogy mások szerint is jól sikerült az alkotásom, hiszen mi másért használnak?
 
-Ez volt az hajtó erő, aminek hatására elkezdtem egy saját titkosító algoritmust fejleszteni. Hiszen másoknak is sikerült már előttem. Nem is egy ilyen algoritmus van amit a mindennapi életünkben szinte állandó jelleggel használunk. Mégsem mondjuk soha sem, hogy ez a legjobb, vagy éppen az a másik. Ilyen tekintetben szerintem ezek az algoritmusok egy kicsit misztikus dolgok. Mivel nehéz eldönteni, hogy kettő közül melyik a jobb. Mert mindig az a kérdés merül fel, hogy milyen értelemben jobb?
+Ez volt az hajtó erő, aminek hatására elkezdtem egy saját titkosító algoritmust fejleszteni. Hiszen másoknak is sikerült már előttem. Nem is egy ilyen algoritmus van amit a mindennapi életünkben szinte állandó jelleggel használunk. Mégsem mondjuk soha sem egy algoritmusra, hogy ez a legjobb, vagy éppen az a másik. Ilyen tekintetben szerintem ezek az algoritmusok egy kicsit misztikus dolgok. Mivel nehéz eldönteni, hogy kettő közül melyik a jobb. Mert mindig az a kérdés merül fel, hogy milyen értelemben jobb?
 
-Ebben a szakdolgozatban megpróbálom részletesen összehasonlítani az ismertebb titkosítási algoritmusokat különböző szempontok alapján. Lehetőleg ezzel érthetőbbé válik ezen algoritmusok világa egy átlagos ember vagy fejlesztő számára. Továbbá kifejtem a saját algoritmusom fejlesztésének folyamatát. Bele érte minden akadályt és nehézséget is, amibe ennek során beleütköztem.
+Ebben a szakdolgozatban megpróbálom részletesen összehasonlítani az ismertebb titkosító algoritmusokat különböző szempontok alapján. Lehetőleg ezzel érthetőbbé válik ezen algoritmusok világa egy átlagos ember vagy fejlesztő számára. Továbbá kifejtem a saját algoritmusom fejlesztésének folyamatát. Bele érte minden akadályt és nehézséget is, amibe ennek során beleütköztem.
 
 \section{Kriptográfia} % Sorszámozott alcím létrehozása.
+
+Az emberek szeretik biztonságban tudni a bizalmas dolgaikat. Legyen az egy betöréses támadás vagy egyszerű adatküldés esetén. Ez a probléma ihlette meg a kriptográfiai algoritmusokat. Egy ilyen algoritmus egy nyílt szöveget vár bemenetként, majd egy kulcs segítségével egy titkosított szöveget hozz létre a kapott szövegből. Ez minden kriptográfiai algoritmus alapelve.
+
+Fontos kiemelni, hogy a kriptográfiai algoritmusokat több módon tudjuk csoportosítani. Az első lehetőség az, hogy az elvégzett műveletek alapján csoportosítjuk őket. Így megkülönböztetjük a keverő, helyettesítő és produkciós titkosító algoritmusokat.
+
+A keverő algoritmusoknál a titkosított szöveg egyszerűen az eredeti szöveg karaktereinek permutációja. Értelem szerűen ez nem nyújtja a legnagyobb biztonságot. Tekintve, hogy a permutáció lehet akár az eredeti szöveg is. Igaz, ez inkább a rövid szövegek esetén valószínűbb, hogy bekövetkezik.
+
+A helyettesítő algoritmusok a nyílt szöveg karaktereit a titkosított szöveg karaktereivel helyettesítik. Ez történhet egyesével vagy akár blokkokban is. Ezek az algoritmusok már nagyobb biztonságot nyújtanak, mint a keverő algoritmusok. De ez sem egy új keletű dolog, a németek Enigma gépe is ezen az elven alapszik. A ki jártasabb a történelemben az tudja, hogy nagyon sokáig nem tudták feltörni az Enigmával küldött üzeneteket.
+
+A produkciós algoritmusok pedig a kettő elv kombinációján alapszanak. Ezek bizonyultak eddig a leghatékonyabb titkosítási módnak. A napjainkban használt algoritmusok is ide tartoznak. A szakdolgozat keretein belül ilyen algoritmusokról lesz részletesebben szó.
+
+A másik felosztási lehetőség, az algoritmus kulcsa szerint történik. Ebben a felosztásban megkülönböztetjük a szimmetrikus és aszimmetrikus kulcsú algoritmusokat. Vitatható, hogy van egy harmadik csoport is, amiben a hasító algoritmusok vannak.
+
+A szimmetrikus kulcsú algoritmusok onnan kapták a nevüket, hogy ugyan azt a kulcsot használjuk titkosításnál és visszafejtésnél is. Ilyenkor mindkét félnek a birtokában van a kulcs. Ennek az a veszélye, hogy a kulcs kiszivároghat. Ha ez megtörténik, akkor innentől kezdve bári el tudja olvasni a titkosított szövegeket.
+
+Az aszimmetrikus kulcsú algoritmusok ezt úgy próbálták orvosolni, hogy két különböző kulcs van. Az egyiket a szöveg titkosításánál kell használni, a másikat pedig a visszafejtésénél. Így csökken az illetéktelen visszafejtés veszélye, mert az ehhez szükséges kulcsot sosem kell megadni senkinek. Ezeket az algoritmusokat sok helyen használjuk manapság. Például végpontok közötti titkosításos üzenetküldésnél.
+
+Az utolsó csoport a hasító algoritmusok. Ezek oly módon titkosítják a nyílt szöveget, hogy azt nem lehet visszafejteni. Egyértelmű, hogy ezek az algoritmusok nem a legmegfelelőbbek titkosított üzenetek küldésére. Hiszen a fogadó fél nem tudja, hogy mi is volt az üzenet eredeti tartalma. Ezen algoritmusok egyik elterjedt felhasználási módja a digitális aláírás. Melynek segítségével a kapott tartalom eredetiségét lehet ellenőrizni.
+
+A szakdolgozat többi részében konkrét szimmetrikus, aszimmetrikus és hasító algoritmusokról lesz szó. Ezek mind produkciós algoritmusok. A keverő és helyettesítő algoritmusokkal külön nem foglalkozom ezen projekt keretein belül.
 
 \section{Poszt-kvantum kriptográfia} % Sorszámozott alcím létrehozása.
 
