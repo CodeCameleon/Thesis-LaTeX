@@ -15,7 +15,7 @@
 \usepackage{csquotes} % A nyelvfüggő szövegekhez szükséges csomag.
 \usepackage[hidelinks]{hyperref} % A linkekhez szükséges csomag.
 \usepackage[backend=biber, style=numeric, sorting=none]{biblatex} % Az irodalmak számozott hivatkozásához szükséges csomag.
-\usepackage[a4paper, left=25mm, top=25mm, right=25mm, bottom= 25mm]{geometry} % PDF-hez igazított, szimmetrikus 2,5 cm margók minden oldalon.
+\usepackage[a4paper, left=25mm, top=25mm, right=25mm, bottom=25mm]{geometry} % PDF-hez igazított, szimmetrikus 2,5 cm margók minden oldalon.
 
 \addbibresource{references.bib} % Az irodalomjegyzék forrásainak megadása.
 
@@ -26,7 +26,7 @@
 % A magyar irodalomjegyzék beállítása.
 \DefineBibliographyStrings{magyar}{
   url = {Elérhetőség:},
-  urlseen = {Utolsó megtekintés dátuma:},
+  urlseen = {Utolsó megtekintés dátuma:}
 }
 
 \DeclareFieldFormat{url}{\\\bibstring{url}\addcolon\space\href{#1}{\textcolor{blue}{\underline{#1}}}} % Megformázza az URL-t az irodalomjegyzékben.
