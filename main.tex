@@ -125,7 +125,7 @@ Titkosítási módszerek a jövő blokkláncai számára és ezek összehasonlí
 
 \section*{A megadott feladat megfogalmazása} % Sorszám nélküli alcím létrehozása.
 
-A feladat a különbező titkosítási algoritmusok összehasonlítás, különböző szempontok alapján. Továbbá egy saját algoritmus fejlesztése és összehasonlítás a már létező és aktívan használt algoritmusokkal.
+A feladat a különböző titkosítási algoritmusok összehasonlítás, különböző szempontok alapján. Továbbá egy saját algoritmus fejlesztése és összehasonlítás a már létező és aktívan használt algoritmusokkal.
 
 \section*{Megoldási mód} % Sorszám nélküli alcím létrehozása.
 
@@ -137,7 +137,7 @@ Az alkalmazás egy ASP.NET Core webalkalmazás lett. A tesztek futtatására az 
 
 \section*{Elért eredmények} % Sorszám nélküli alcím létrehozása.
 
-Egy teljesen működő és tesztelésre alkalmas webalkalmazás. Továbbá egy saját szimmetrikus titkosítási algoritmus C\# megvalósítása.
+Egy teljesen működő és tesztelésre alkalmas webalkalmazás. Továbbá egy saját szimmetrikus titkosító algoritmus C\# megvalósítása.
 
 \section*{Kulcsszavak} % Sorszám nélküli alcím létrehozása.
 
@@ -184,6 +184,14 @@ Az információ biztonság tekintetében a problémát az képzi, hogy a legtöb
 Poszt-kvantum algoritmusoknak nevezzük azokat az algoritmusokat, amelyek ellenállók a kvantumszámítógéppel való támadásoknak. Ilyen például a Crystals-Kyber aszimmetrikus kulcsú algoritmus. Digitális aláírásra pedig Crystals-Dilithium algoritmus.
 
 \section{Blokkláncok} % Sorszámozott alcím létrehozása.
+
+A blokkláncok egy nemrégen megjelent új adatbázis fajta. Céljuk az adatok lehető legbiztonságosabb tárolása egy decentralizált módon \cite{daglarCizmeciBlockchain}. Első hallásra ez egy nagyon hasznos előrelépésnek tűnhet, de sajnos amint minden új technológiának, ennek is vannak problémái. Először is, egy blokklánc úgy tárolja az adatokat, hogy úgy nevezett blokkokba rendezi őket. Majd az elkészült blokkokat hozzá rakja, azaz összeláncolja a már meglévő blokkokkal. Innen kapta a névét a technológia, hiszen a tárolt adatok gyakorlatilag blokkok egymásba fűzött lánca.
+
+Talán a legnagyobb erősségük egyben az egyik hátrányuk is. Ez alatt arra gondolok, hogy a már egyszer hozzá adott blokkot soha sem lehet megváltoztatni. Ez ugyan hatalmas biztonságot nyújt, hiszen azonnal észre lehet venni, ha valaki módosította az adatokat. Ám sajnos ennek a tulajdonságnak köszönhetően nem fogja tudni kiváltani a manapság szinte mindenhol használt relációs adatbázisokat. Tekintve, hogy egy egyszerű jelszó módosítás nem lenne lehetséges, ha a felhasználói fiók egy blokkban lenne tárolva.
+
+A másik nagy előnyük az, hogy decentralizált módon lehet őket tárolni. Ez egy jelentős előrelépés a relációs adatbázisokkal szemben, amiket általában centralizált módon használunk. A decentralizált tárolási mód nagyobb biztonságot add támadásokkal szemben, hiszen az adatok nem egyetlen központosított helyen vannak tárolva. A biztonság további növelése érdekében a blokkokban lévő adatokat még általában titkosítják is. Ez szimmetrikus vagy aszimmetrikus algoritmusokkal is történhet. A láncolásnál pedig hasító algoritmustokat használnak az egyedi azonosítók létrehozásához. A szakdolgozatat szempontjából ezért fontos mind a három fajta titkosító algoritmus.
+
+Végezetül a blokkláncoknak van egy nehézségük, a skálázódás. Ez egy általános probléma a blokkláncokban, bár az oka nem mindig ugyanaz. A Bitcoin-nál például a blokkok méretének korláta okozza. De okozhassa akár a hastó függvény futásához szükséges idő is. Ezért is fontos a blokkláncok számára, hogy a lehető leghatékonyabb algoritmusokat használják. A szakdolgozatnak részben ezek megtalálása a célja. Természetesen nem csak a legmegfelelőbb hasító algoritmust, hanem mind a három fajtából a lehető legjobbat.
 
 \chapter{Felhasznált technológiák} % Sorszámozott fejezet létrehozása.
 
@@ -254,6 +262,8 @@ Verziókövetésre Git-et \cite{git} használtam. Leginkább azért, mert ez az 
 \section{A fejlődés folyamata} % Sorszámozott alcím létrehozása.
 
 \section{Jelenlegi állapot} % Sorszámozott alcím létrehozása.
+
+\section{Jövőbeli tervek} % Sorszámozott alcím létrehozása.
 
 \chapter{Teszteredmények} % Sorszámozott fejezet létrehozása.
 
