@@ -225,9 +225,15 @@ Verziókövetésre Git-et \cite{git} használtam. Leginkább azért, mert ez az 
 
 \section{Webalkalmazás} % Sorszámozott alcím létrehozása.
 
+Az elképzelésem az volt, hogy egy webalkalmazásban előre definiált Unit teszteket lehet futtatni a megvalósított algoritmusokra. Sajnos nem láttam egyszerű megoldás arra, hogy a felhasználó futási időben adhasson meg új tesztelési szempontot, azaz egy teljesen új Unit tesztet. Ezért mentem inkább abba az irányba, hogy előre megírt tesztek közül lehet választani a grafikus felületen. Ugyan ez a probléma fennállt az algoritmusoknál is. Itt szintén arra a következtetésere jutottam, hogy muszáj lesz őket előre megvalósítani. A teszteseteknél viszont nem láttam akadályát, hogy a felhasználó a felületen keresztül adjon meg új teszteseteket, vagy kiválasztja a neki éppen szükséges eseteket a már létezők közül. Tehát összegezve, egy olyan webes felültetet akarok készíteni, ahol a felhasználó könnyedén kijelölheti a tesztelési szempontot a neki tesztő tesztesetekre. Majd ezeket a teszteket a szerver lefuttatja, ezzel nem terhelve a felhasználó gépét. Tekint, hogy itt könnyedén szükség lehet elég jelentő mennyiségű számítási kapacitásra. A kész tesztek eredményeit a szerver eltárolja, amit a felhasználó ezután könnyedén letud kérdezni.
+
 \section{Model-View-Controller} % Sorszámozott alcím létrehozása.
 
+Úgy gondolom, hogy ebben a webalkalmazásban is kiválóan alkalmazható az MVC \cite{mozillaMvc} tervezési minta. Egyértelműen szétválasztaná az alkalmazás rétegeit, ezzel megkönnyítve a tesztelést és a hibakeresét is. Bár ez a fajta strukturálás nagyobb csapatban való fejlesztésnél a leghatékonyabb. Tekintve, hogy a konfliktusok elkerülése lényegesen meggyorsítja a fejlesztés folyamatát. Ami jelentősen könnyebb a minta rétegelésnek köszönhetően. Mivel egyedül dolgozom a projekten, itt ez alapból sem volt probléma. Viszont az átláthatóságot akkor is lényegesen javítja. Valamit megadja az a rugalmasságot, hogy a jövőben lehet akkor egy asztali alkalmazás is készíteni belőle. Hiszen csak a vezérlő réteget kell lecserélni, az alkalmazás többi része érintetlen marad.
+
 \section{Szeparáció} % Sorszámozott alcím létrehozása.
+
+Figyelembe véve, a tervezési minta választásomat és az alkalmazás funkcionalitását. Arra a döntésere jutottam, hogy hasznos lenne az alkalmazás részeit teljesen elkülöníteni egymástól. Lenne egy külön rész a közös komponenseknek, a teszteredményeknek, a teszteknek és magának a webalkalmazásnak. Tekinthessük ezeket egymásra épülő alprojekteknek. Ilyen jellegű elkülönítés jelentősen segíti a projekt átláthatóságát. Valamit az objektum orientált alapelvek betartását is. Továbbá könnyebbé teszi a projekt új funkciókkal való bővítését. Még akkor is ha az egy előre nem betervezett funkció.
 
 \section{Adatbázis} % Sorszámozott alcím létrehozása.
 
