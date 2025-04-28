@@ -12,6 +12,7 @@
 \usepackage{parskip} % Kikapcsolja az automatikus paragrafus bekezdéseket.
 \usepackage{setspace} % A sortávolság beállításához szükséges csomag.
 \usepackage{xcolor} % A színezéshez szükséges csomag.
+\usepackage{float} % Az ábrák pontos elhelyezéséhez szükséges csomag.
 \usepackage{csquotes} % A nyelvfüggő szövegekhez szükséges csomag.
 \usepackage[hidelinks]{hyperref} % A linkekhez szükséges csomag.
 \usepackage[backend=biber, style=numeric, sorting=none]{biblatex} % Az irodalmak számozott hivatkozásához szükséges csomag.
@@ -233,13 +234,27 @@ Az elképzelésem az volt, hogy egy webalkalmazásban előre definiált Unit tes
 
 \section{Szeparáció} % Sorszámozott alcím létrehozása.
 
-Figyelembe véve, a tervezési minta választásomat és az alkalmazás funkcionalitását. Arra a döntésere jutottam, hogy hasznos lenne az alkalmazás részeit teljesen elkülöníteni egymástól. Lenne egy külön rész a közös komponenseknek, a teszteredményeknek, a teszteknek és magának a webalkalmazásnak. Tekinthessük ezeket egymásra épülő alprojekteknek. Ilyen jellegű elkülönítés jelentősen segíti a projekt átláthatóságát. Valamit az objektum orientált alapelvek betartását is. Továbbá könnyebbé teszi a projekt új funkciókkal való bővítését. Még akkor is ha az egy előre nem betervezett funkció.
-
-\section{Adatbázis} % Sorszámozott alcím létrehozása.
+Figyelembe véve, a tervezési minta választásomat és az alkalmazás funkcionalitását. Arra a döntésere jutottam, hogy hasznos lenne az alkalmazás részeit teljesen elkülöníteni egymástól. Lenne egy külön rész a közös komponenseknek, a teszteredményeknek, a teszteknek és magának a webalkalmazásnak. Tekinthessük ezeket egymásra épülő alprojekteknek. Ilyen jellegű elkülönítés jelentősen segíti a projekt átláthatóságát. Valamit az objektum orientált alapelvek betartását is. Továbbá könnyebbé teszi a projekt új funkciókkal való bővítését. Még akkor is ha az egy előre be nem tervezett funkció. Ez a csoportosítás az MVC mintával együtt nagy rugalmasságot add az alkalmazásnak.
 
 \section{Algoritmusok egységesítés} % Sorszámozott alcím létrehozása.
 
 \section{Tesztelt tulajdonságok} % Sorszámozott alcím létrehozása.
+
+\section{Adatbázis} % Sorszámozott alcím létrehozása.
+
+Az eredeti elképzelésem az volt, hogy a teszteredményeket egyszerű szöveges naplófájlokban fogom tárolni. Viszont ez nagyon megnehezítené az eredmények dinamikus megjelenítését a felületen. Ezért inkább CSV fájlformátumot akartam használni. Végül viszont arra jutottam, hogy legjobban egy adatbázissal járok. Úgy gondoltam, hogy elég felesleges lenne egy teljes adatbázis szervert futtatni. Ezért a választásom az SQLite-ra \cite{sqLite} esett, mivel az alkalmazás szinte csak írni és olvasni fog az adatbázisban. Módosításra és törlésre nem lesz szükség.
+
+A következő lépés az adatbázis megtervezése volt. Tudok róla, hogy sok különböző diagramot lehet készíteni az adatbázisokról, de személy szerint egynél többet ritkán szoktam csinálni. Úgy gondolom, hogy az egyed-kapcsolat diagram egyértelműen ábrázolja az adatbázist. A későbbiekben pedig könnyen és gyorsan meg lehet róla valósítani a tényleges adatbázist.
+
+A projekt adatbázisának a szerkezete a \ref{fig:entityrelationship} ábrán látható.
+
+% Kötelező helyű ábra beszúrása.
+\begin{figure}[H]
+    \centering % Az ábra középre igazítása.
+    \includegraphics[width=\textwidth]{EntityRelationship.png} % Kép beszúrása.
+    \caption{Az adatbázis egyed-kapcsolat diagramja} % Az ábra neve.
+    \label{fig:entityrelationship} % Az ábra referenciája.
+\end{figure}
 
 \section{Eredmények megjelenítése} % Sorszámozott alcím létrehozása.
 
