@@ -238,6 +238,36 @@ Figyelembe véve, a tervezési minta választásomat és az alkalmazás funkcion
 
 \section{Algoritmusok egységesítés} % Sorszámozott alcím létrehozása.
 
+Szeretném, hogy bármilyen titkosító algoritmust le lehessen tesztelni az alkalmazással. Még akkor is ha az algoritmus megvalósítása nem a sajátom. Ezért kell egy módszer, hogy egy már létező algoritmus megvalósítását univerzális módon oda tudjam adni a Unit teszteknek. Tekintve, hogy az alkalmazás nyelve C\#, ezt könnyedén meg lehet oldani interfészekkel.
+
+% Kötelező helyű ábra beszúrása.
+\begin{figure}[H]
+    \centering % Az ábra középre igazítása.
+    \includegraphics[width=0.8\textwidth]{Figures/ICryptographicAlgorithm.png} % Kép beszúrása.
+    \caption{Egy általános algoritmust ábrázoló interfész} % Az ábra neve.
+    \label{fig:ICryptographicAlgorithm} % Az ábra referenciája.
+\end{figure}
+
+Az én megvalósításom a \ref{fig:ICryptographicAlgorithm} ábrán látható. A kódolási stílusom szerint az interfészek mindig \textit{I} betűvel kezdődőnek, az enumok pedig \textit{E} betűvel. Valamint az XML hozzászólások magyar nyelvűek. Tehát az ábrán látható két tulajdonság egy-egy enum. Az \textit{EAlgorithmName} a projektben definiált algoritmusok neveit tartalmazza. Az \textit{EAlgorithmType} pedig az algoritmusok típusait (szimmetrikus, aszimmetrikus és hasító). Ez az interfész reprezentálja a legmagasabb absztrakciós szint egy algoritmus számára. Ebből származik két már speciálisabb interfész, az \textit{IEncryptionAlgorithm} és az \textit{IHashingAlgorithm}. Értelem szerűen az első ábrázolja a visszafejthető algoritmusokat, a második pedig a visszafejthetetleneket. Az interfészek kódjai a \ref{fig:IEncryptionAlgorithm} és a \ref{fig:IHashingAlgorithm} ábrán láthatóak.
+
+% Kötelező helyű ábra beszúrása.
+\begin{figure}[H]
+    \centering % Az ábra középre igazítása.
+    \includegraphics[width=0.8\textwidth]{Figures/IEncryptionAlgorithm.png} % Kép beszúrása.
+    \caption{Egy visszafejthető algoritmust ábrázoló interfész} % Az ábra neve.
+    \label{fig:IEncryptionAlgorithm} % Az ábra referenciája.
+\end{figure}
+
+Az \textit{IEncryptionAlgorithm} felépítésének köszönhetően ábrázolhat egy szimmetrikus vagy aszimmetrikus algoritmust is, szükségtelen két külön interfészt definiálni. Az \textit{IHashingAlgorithm} pedig a hasító algoritmusokat ábrázolja. Ezeknek az interfészeknek köszönhetően bármilyen algoritmust univerzálisan lehet kezelni. Lényegesen könnyebbé téve a Unit tesztek írását.
+
+% Kötelező helyű ábra beszúrása.
+\begin{figure}[H]
+    \centering % Az ábra középre igazítása.
+    \includegraphics[width=0.8\textwidth]{Figures/IHashingAlgorithm.png} % Kép beszúrása.
+    \caption{Egy visszafejthetetlen algoritmust ábrázoló interfész} % Az ábra neve.
+    \label{fig:IHashingAlgorithm} % Az ábra referenciája.
+\end{figure}
+
 \section{Tesztelt tulajdonságok} % Sorszámozott alcím létrehozása.
 
 \section{Adatbázis} % Sorszámozott alcím létrehozása.
@@ -246,14 +276,14 @@ Az eredeti elképzelésem az volt, hogy a teszteredményeket egyszerű szöveges
 
 A következő lépés az adatbázis megtervezése volt. Tudok róla, hogy sok különböző diagramot lehet készíteni az adatbázisokról, de személy szerint egynél többet ritkán szoktam csinálni. Úgy gondolom, hogy az egyed-kapcsolat diagram egyértelműen ábrázolja az adatbázist. A későbbiekben pedig könnyen és gyorsan meg lehet róla valósítani a tényleges adatbázist.
 
-A projekt adatbázisának a szerkezete a \ref{fig:entityrelationship} ábrán látható.
+A projekt adatbázisának a szerkezete a \ref{fig:EntityRelationship} ábrán látható.
 
 % Kötelező helyű ábra beszúrása.
 \begin{figure}[H]
     \centering % Az ábra középre igazítása.
-    \includegraphics[width=\textwidth]{EntityRelationship.png} % Kép beszúrása.
+    \includegraphics[width=\textwidth]{Figures/EntityRelationship.png} % Kép beszúrása.
     \caption{Az adatbázis egyed-kapcsolat diagramja} % Az ábra neve.
-    \label{fig:entityrelationship} % Az ábra referenciája.
+    \label{fig:EntityRelationship} % Az ábra referenciája.
 \end{figure}
 
 \section{Eredmények megjelenítése} % Sorszámozott alcím létrehozása.
