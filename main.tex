@@ -291,6 +291,12 @@ Tekintve, hogy így tudok rá külső kulcs megkötéseket rakni. Ennek a tábl�
 
 \section{Eredmények megjelenítése} % Sorszámozott alcím létrehozása.
 
+Az eredeti elképzelésemben táblázatokban akartam összegyűjteni a tesztek eredményeit. Egy táblázat lett volna a futási idő teszteredményeknek, egy másik pedig a memóriahasználat eredményeknek. Gyorsan be kellet látnom, hogy így nagyon nehezen áttekinthetőek az adatok. Ami részben abból eredt, hogy a különböző fajta algoritmusok együtt vannak megjelenítve. Ezért áttértem inkább a diagramokra, azon belül is a vonaldiagramra. Ez határozottan jobb megoldás volt, így sokkal áttekinthetőbbek lettek az eredmények.
+
+A diagram X tengelyén a tesztelt bemenet mérete van bájtban. Az Y tengelyen pedig a teszt eredménye. Az algoritmusonként megjelenő több vonal elkerülése érdekében az egyes teszteredmények pontdiagramként vannak kirajzolva. Majd ezek átlagolva lesznek minden egyes X tengelyen lévő értékben. Ezzel biztosítva, hogy algoritmusonként csak egy egyenes jelenik meg.
+
+A végleges verzió szerint minden algoritmus egyetlen diagramon fog megjelenni. Mindegyikhez hozzá van rendelve egy szín, amivel az a konkrét algoritmus ábrázolva van a diagramon. Az ábra túlzsúfolásának elkerülése érdekében meg lehet adni szűrési feltételeket a megjelenítendő teszteredményekre. Ilyen például az algoritmus típusa, a tesztelt tulajdonság vagy az algoritmus neve. Ezek segítségével csökkenteni lehet az ábrán megjelenítendő adatokat, ez által átláthatóbbá téve azt.
+
 \chapter{Megvalósítás} % Sorszámozott fejezet létrehozása.
 
 \section{Az alkalmazás alapjai} % Sorszámozott alcím létrehozása.
