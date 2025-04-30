@@ -270,18 +270,21 @@ Az \textit{IEncryptionAlgorithm} felépítésének köszönhetően ábrázolhat 
 
 \section{Tesztelt tulajdonságok} % Sorszámozott alcím létrehozása.
 
+Rengetek különböző módon lehetne tesztelni ezeket az algoritmusokat. Viszont a rendelkezésre álló idő korlátozott. Ezért a legjelentősebb tulajdonságok tesztelésére koncentráltam, a memóriahasználat és a futási idő. Ezeket szintén több különböző helyzetben lehet tesztelni. Az eredeti elképzelésben magának az algoritmusnak simán és egy blokkláncba helyezve is mérve lett volna a hatékonysága. Sajnos az utóbbi végül teljesen el lett hagyva, tekintettel a szűkös időkorlátra. Viszont így is egy elég jó képet tudunk kapni az algoritmus hatékonyságáról és a korlátairól. Az interfészeknek köszönhetően pedig ezek teljesen univerzális tesztek minden jelenlegi és jövőbeli algoritmusra.
+
 \section{Adatbázis} % Sorszámozott alcím létrehozása.
 
-Az eredeti elképzelésem az volt, hogy a teszteredményeket egyszerű szöveges naplófájlokban fogom tárolni. Viszont ez nagyon megnehezítené az eredmények dinamikus megjelenítését a felületen. Ezért inkább CSV fájlformátumot akartam használni. Végül viszont arra jutottam, hogy legjobban egy adatbázissal járok. Úgy gondoltam, hogy elég felesleges lenne egy teljes adatbázis szervert futtatni. Ezért a választásom az SQLite-ra \cite{sqLite} esett, mivel az alkalmazás szinte csak írni és olvasni fog az adatbázisban. Módosításra és törlésre nem lesz szükség.
+Az eredeti elképzelésem az volt, hogy a teszteredményeket egyszerű szöveges naplófájlokban fogom tárolni. Viszont ez nagyon megnehezítené az eredmények dinamikus megjelenítését a felületen. Ezért inkább CSV fájlformátumot akartam használni. Végül viszont arra jutottam, hogy legjobban egy adatbázissal járok. Úgy gondoltam, hogy felesleges lenne egy teljes adatbázis szervert futtatni. Ezért a választásom az SQLite-ra \cite{sqLite} esett, mivel az alkalmazás szinte csak írni és olvasni fog az adatbázisban. Módosításra és törlésre nem lesz szükség. A következő lépés az adatbázis megtervezése volt. Tudok róla, hogy sok különböző diagramot lehet készíteni az adatbázisokról, de személy szerint egynél többet ritkán szoktam csinálni. Úgy gondolom, hogy az egyed-kapcsolat diagram egyértelműen ábrázolja az adatbázist. A későbbiekben pedig könnyen és gyorsan meg lehet róla valósítani a tényleges adatbázist.
 
-A következő lépés az adatbázis megtervezése volt. Tudok róla, hogy sok különböző diagramot lehet készíteni az adatbázisokról, de személy szerint egynél többet ritkán szoktam csinálni. Úgy gondolom, hogy az egyed-kapcsolat diagram egyértelműen ábrázolja az adatbázist. A későbbiekben pedig könnyen és gyorsan meg lehet róla valósítani a tényleges adatbázist.
+A projekt adatbázisának a szerkezete a \ref{fig:EntityRelationship} ábrán látható. Az entitások kékkel, az attribútumok zölddel, a kapcsolatok pedig sárgával vannak jelölve. Az adatmodell mindössze hat táblából áll. Mivel a kapcsolatok egy az N-hez típusúak, nincs szükség külön kapcsolótáblák alkalmazására. Ennek az eredménye egy könnyedén átlátható adatbázis. A memóriahasználat és a futási idő teszteredmények specializálásai az általános teszteredmények táblának. Így eliminálva van a redundáns adattárolás. Arról nem is beszélve, hogy a jövőben könnyedén hozzá lehet adni egy új fajta teszteredmény táblát az adatbázishoz.
 
-A projekt adatbázisának a szerkezete a \ref{fig:EntityRelationship} ábrán látható.
+Az \textit{AlgorithmTypes} tábla az \textit{EAlgorithmType} enumnak az adatbázisbeli megfelelője. Nálam ez egy jól bevált szokás, hogy az enumoknak megfeleltetek egy adatbázis táblát. Azért szeretem így csinálni, mert robusztusabb lesz tőle az adatbázis.
+Tekintve, hogy így tudok rá külső kulcs megkötéseket rakni. Ennek a táblának a kulcsa egész szám típusú, mivel C\#-ban is egész számokkal vannak ellátva az enumok egyes értékei. Az \textit{Algorithms} tábla kulcsa szintén egész szám típusú, mert ez az \textit{EAlgorithmName} enum számozása alapján kap értéket. Az összes többi táblánál pedig Guid típusúak. Az \textit{AlgorithmTypes} tábla kivételével mindegyik tábla kulcsa automatikusan generált.
 
 % Kötelező helyű ábra beszúrása.
 \begin{figure}[H]
     \centering % Az ábra középre igazítása.
-    \includegraphics[width=\textwidth]{Figures/EntityRelationship.png} % Kép beszúrása.
+    \includegraphics[width=0.8\textwidth]{Figures/EntityRelationship.png} % Kép beszúrása.
     \caption{Az adatbázis egyed-kapcsolat diagramja} % Az ábra neve.
     \label{fig:EntityRelationship} % Az ábra referenciája.
 \end{figure}
