@@ -319,7 +319,35 @@ A végleges verzió szerint minden algoritmus egyetlen diagramon fog megjelenni.
 
 \section{Elképzelés} % Sorszámozott alcím létrehozása.
 
+Az alap ötletem az volt, hogy egy algoritmus kulcsának növelésével csökkenthetjük az elvégezendő műveletek számát. Ez által csökkenne a futáshoz szükséges idő. Ehhez plusz információval kell ellátnunk a kulcsot, szóval az eddig kulcsok felépítése nem fog működni. Viszont továbbra is szeretném, hogy a kulcsot ki lehessen exportálni szöveges fájlként.
+
+Mivel ez lesz az első ilyen próbálkozásom, ezért egy szimmetrikus kulcs titkosító algoritmust szeretnék készíteni. Személyes meglátásom alapján ezt a legkönnyebb megvalósítani. Jelentősebben egyszerűbb, mint egy aszimmetrikus kulcsú algoritmust. A hasító algoritmusokról nem is beszélve, talán azokat a legnehezebb elkészíteni.
+
 \section{A fejlődés folyamata} % Sorszámozott alcím létrehozása.
+
+Az első ötletem az volt, hogy egyszerűen vektorok összegeként titkosítom a szöveget. Az ihletet a vektorok összeadása adta, hiszen ott sem látszik, hogy melyik két komponens vektor összege az eredmény vektor. De ugye ehhez le kell tudnunk méri a vektorok pontos adatait. Itt jöttem rá, hogy a kulcs lehetne egy koordináta-rendszer és minden betűt egy pontként ábrázolnánk benne. A programkódban ez egy kétdimenziós karakter tömb lenne, ahol az X és Y koordinátáknak a tömbelem két indexe felel meg. Az \ref{fig:MyAlgorithm1} ábrán látható egy példa, hogy hogyan nézhet ki egy kulcs. Itt a karakterek éppen a magyar ábécé nagy betűi, de értelem szerűen bármilyen karakterek lehetnek, bele értve a vezérlő karaktereket is.
+
+% Kötelező helyű ábra beszúrása.
+\begin{figure}[H]
+    \centering % Az ábra középre igazítása.
+    \includegraphics[width=0.6\textwidth]{Figures/MyAlgorithm1.png} % Kép beszúrása.
+    \caption{A magyar ábécé nagy betűit tartalmazó kulcs} % Az ábra neve.
+    \label{fig:MyAlgorithm1} % Az ábra referenciája.
+\end{figure}
+
+Sajnos már az első alkalommal problémába ütköztem, amikor titkosítani akartam egy szöveget ezzel a kulccsal. Az irányított vektorok nem a voltak a leghatékonyabb módjai az ehhez hasonló tömbökön történő mozgásnak. Ekkor jutott eszembe, hogy fizikában is mindig szétbontjuk a vektorokat olyan komponensekre, amelyek iránya és irányítása megegyezik a koordináta rendszer tengelyeivel. Én is ezt tettem, egy-egy külön vektort használtam a vízszintes és a  függőleges mozgás jelölésére. Tehát az előbb említett módszerrel, az \ref{fig:MyAlgorithm1} ábrán látható kulccsal, az N betű titkosítása az 5 egység hosszú vízszintes és 2 egység hosszú függőleges vektor lenne. A sorrend természetesen mindegy, mert a vektorok összeadása kommutatív.
+
+Mivel egy szónak csak úgy van értelme, hogy a betűk a megfelelő sorrendben következnek egymás után. Ezért arra gondoltam, hogy a vektorok mindig az előző betű pozíciójából indulnak. Ez által nehezítve a visszafejtést. Az átláthatóság kedvért mindig a vízszintes vektor van elsőként írva. Továbbá az egyszerűbben áttekinthető forma érdekében, a két vektor vízszintes|függőleges alakban van elrendezve.
+
+% Kötelező helyű ábra beszúrása.
+\begin{figure}[H]
+    \centering % Az ábra középre igazítása.
+    \includegraphics[width=0.6\textwidth]{Figures/MyAlgorithm2.png} % Kép beszúrása.
+    \caption{Az ALMA szó titkosítása az adott kulcson} % Az ábra neve.
+    \label{fig:MyAlgorithm2} % Az ábra referenciája.
+\end{figure}
+
+Az \ref{fig:MyAlgorithm2} ábrán látható az ALMA szó titkosításának lépései. Az első lépés az A betű titkosítása, ami egyszerűen 0|0 lesz. Ez után el kell jutnunk az L betűbe, ehhez kell két darab 2 egység hosszú vektor, vagyis 2|2. A következő célpont az M betű. Mivel már a megfelelő sorban vagyunk, ezért csak vízszintes vektor kell. Tehát az esetünkben 2|0 lesz a megoldás. Végül vissza kell jutnunk az A betűbe. Ehhez a szükséges vektorok -4|-2 lesznek. Mind ezt összegezve, az eredményünk a 0|0, 2|2, 2|0, -4|-2 vektorok sorozata lesz.
 
 \section{Jelenlegi állapot} % Sorszámozott alcím létrehozása.
 
