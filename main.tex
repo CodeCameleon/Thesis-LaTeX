@@ -11,6 +11,7 @@
 \usepackage{titlesec} % A címformázáshoz szükséges csomag.
 \usepackage{parskip} % Kikapcsolja az automatikus paragrafus bekezdéseket.
 \usepackage{setspace} % A sortávolság beállításához szükséges csomag.
+\usepackage{amsmath} % A matematikai képletekhez szükséges csomag.
 \usepackage{xcolor} % A színezéshez szükséges csomag.
 \usepackage{float} % Az ábrák pontos elhelyezéséhez szükséges csomag.
 \usepackage{csquotes} % A nyelvfüggő szövegekhez szükséges csomag.
@@ -337,7 +338,7 @@ Az első ötletem az volt, hogy egyszerűen vektorok összegeként titkosítom a
 
 Sajnos már az első alkalommal problémába ütköztem, amikor titkosítani akartam egy szöveget ezzel a kulccsal. Az irányított vektorok nem a voltak a leghatékonyabb módjai az ehhez hasonló tömbökön történő mozgásnak. Ekkor jutott eszembe, hogy fizikában is mindig szétbontjuk a vektorokat olyan komponensekre, amelyek iránya és irányítása megegyezik a koordináta rendszer tengelyeivel. Én is ezt tettem, egy-egy külön vektort használtam a vízszintes és a  függőleges mozgás jelölésére. Tehát az előbb említett módszerrel, az \ref{fig:MyAlgorithm1} ábrán látható kulccsal, az N betű titkosítása az 5 egység hosszú vízszintes és 2 egység hosszú függőleges vektor lenne. A sorrend természetesen mindegy, mert a vektorok összeadása kommutatív.
 
-Mivel egy szónak csak úgy van értelme, hogy a betűk a megfelelő sorrendben következnek egymás után. Ezért arra gondoltam, hogy a vektorok mindig az előző betű pozíciójából indulnak. Ez által nehezítve a visszafejtést. Az átláthatóság kedvért mindig a vízszintes vektor van elsőként írva. Továbbá az egyszerűbben áttekinthető forma érdekében, a két vektor vízszintes|függőleges alakban van elrendezve.
+Mivel egy szónak csak úgy van értelme, hogy a betűk a megfelelő sorrendben következnek egymás után. Ezért arra gondoltam, hogy a vektorok mindig az előző betű pozíciójából indulnak. Ez által nehezítve a visszafejtést. Az átláthatóság kedvért mindig a vízszintes vektor van elsőként írva. Továbbá az egyszerűbben áttekinthető forma érdekében, a két vektor $(\text{vízszintes} \mid \text{függőleges})$ alakban van elrendezve.
 
 % Kötelező helyű ábra beszúrása.
 \begin{figure}[H]
@@ -347,7 +348,7 @@ Mivel egy szónak csak úgy van értelme, hogy a betűk a megfelelő sorrendben 
     \label{fig:MyAlgorithm2} % Az ábra referenciája.
 \end{figure}
 
-Az \ref{fig:MyAlgorithm2} ábrán látható az ALMA szó titkosításának lépései. Az első lépés az A betű titkosítása, ami egyszerűen 0|0 lesz. Ez után el kell jutnunk az L betűbe, ehhez kell két darab 2 egység hosszú vektor, vagyis 2|2. A következő célpont az M betű. Mivel már a megfelelő sorban vagyunk, ezért csak vízszintes vektor kell. Tehát az esetünkben 2|0 lesz a megoldás. Végül vissza kell jutnunk az A betűbe. Ehhez a szükséges vektorok -4|-2 lesznek. Mind ezt összegezve, az eredményünk a 0|0, 2|2, 2|0, -4|-2 vektorok sorozata lesz.
+Az \ref{fig:MyAlgorithm2} ábrán látható az ALMA szó titkosításának lépései. Az első lépés az A betű titkosítása, ami egyszerűen $(0 \mid 0)$ lesz. Ez után el kell jutnunk az L betűbe, ehhez kell két darab 2 egység hosszú vektor, vagyis $(2 \mid 2)$. A következő célpont az M betű. Mivel már a megfelelő sorban vagyunk, ezért csak vízszintes vektor kell. Tehát az esetünkben $(2 \mid 0)$ lesz a megoldás. Végül vissza kell jutnunk az A betűbe. Ehhez a szükséges vektorok $(-4 \mid -2)$ lesznek. Mind ezt összegezve, az eredményünk a $(0 \mid 0), (2 \mid 2), (2 \mid 0), (-4 \mid -2)$ vektorok sorozata lesz.
 
 \section{Jelenlegi állapot} % Sorszámozott alcím létrehozása.
 
