@@ -350,6 +350,8 @@ Mivel egy szónak csak úgy van értelme, hogy a betűk a megfelelő sorrendben 
 
 Az \ref{fig:MyAlgorithm2} ábrán látható az ALMA szó titkosításának lépései. Az első lépés az A betű titkosítása, ami egyszerűen $(0 \mid 0)$ lesz. Ez után el kell jutnunk az L betűbe, ehhez kell két darab 2 egység hosszú vektor, vagyis $(2 \mid 2)$. A következő célpont az M betű. Mivel már a megfelelő sorban vagyunk, ezért csak vízszintes vektor kell. Tehát az esetünkben $(2 \mid 0)$ lesz a megoldás. Végül vissza kell jutnunk az A betűbe. Ehhez a szükséges vektorok $(-4 \mid -2)$ lesznek. Mind ezt összegezve, az eredményünk a $(0 \mid 0), (2 \mid 2), (2 \mid 0), (-4 \mid -2)$ vektorok sorozata lesz.
 
+A következő módosítás amit véghez vittem, a kulcs végtelenítése volt. Ezt úgy kell érteni, hogy az algoritmus szabadon lesétálhat a kulcsról. Amikor ez bekövetkezik, akkor a kulcs átellenes oldalára kerül. Ez azt jelenti, hogy az \ref{fig:MyAlgorithm2} ábrán az algoritmus az O betűből el tud jutni a J betűbe egy $(1 \mid 0)$ mozgással. Ennek tudatosan nincs jelölése a végeredményben, ez is bonyolítva a titkosított szöveg illetéktelen visszafejtését.
+
 \section{Jelenlegi állapot} % Sorszámozott alcím létrehozása.
 
 \section{Jövőbeli tervek} % Sorszámozott alcím létrehozása.
