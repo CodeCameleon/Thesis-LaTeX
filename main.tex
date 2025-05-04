@@ -352,6 +352,22 @@ Az \ref{fig:MyAlgorithm2} ábrán látható az ALMA szó titkosításának lép�
 
 A következő módosítás amit véghez vittem, a kulcs végtelenítése volt. Ezt úgy kell érteni, hogy az algoritmus szabadon lesétálhat a kulcsról. Amikor ez bekövetkezik, akkor a kulcs átellenes oldalára kerül. Ez azt jelenti, hogy az \ref{fig:MyAlgorithm2} ábrán az algoritmus az O betűből el tud jutni a J betűbe egy $(1 \mid 0)$ mozgással. Ennek tudatosan nincs jelölése a végeredményben, ez is bonyolítva a titkosított szöveg illetéktelen visszafejtését.
 
+Támadt egy olyan ötletem, hogy egy karakter akár többször is szerepelhetne a kulcsban. Az algoritmus pedig véletlenszerűen választana egyet, majd annak a pozícióját használná a vektorok elkészítéséhez. Ezzel a megoldással egy betűt több különböző módon lehet titkosítani, tovább növelve a biztonságot.
+
+Ekkor szembesültem vele, hogy az algoritmus futási ideje borzasztó. Az oka pedig, hogy minden lépés előtt, meg kell vizsgálnia az egész kulcsot, hogy hol található a kövekező betű, ahova el kell jutnia. Ezen úgy sikerült túllépni, hogy a kulcs beállítása után az algoritmus készít magának egy szótárat róla. A szótárban szereplő kulcsok az algoritmus kulcsában megtalálható karakterek, az értékek pedig az előfordulásuk pozícióinak listája. Ezzel jelentősen sikerült lecsökkenteni az algoritmus futási idejét.
+
+A titkosított szöveg még mindig elég sok információt tartalmazott. Például, hogy hány karakterből állt az eredeti szöveg. Drasztikus lépésnek tűnhet, de egyszerűen kivettem minden jellegű tagolást a titkosított szövegből. Viszont így már nem lehetett vissza fejteni. Ezért arra gondoltam, hogy standardizálom a vektorok méretét a kulcs mérete alapján. Ezt azt jelenti, hogy egy kétszámjegyű magasságú kulcson a függőleges vektorok mindig két számjeggyel lesznek ábrázolva. Ugyan ez érvényes a kulcs szélességére és a vízszintes vektorokra is. Ezzel a módosítással az \ref{fig:MyAlgorithm2} ábrán látható ALMA szó titkosítása az adott kulccsal $002220-4-2$ lesz.
+
+Jól látható, hogy a negatív számok még mindig sok információt adhatnak az eredeti szövegről. A megoldás viszont nagyon egyszerű a problémára. Mind össze le kell korlátozni, hogy az algoritmus nem léphet negatív irányba. Szerencsére ez nem probléma, mivel a végtelenített kulcsnak köszönhetően így is el tud jutni minden karakterbe. Így most már az ALMA szó titkosítása $00222043$ lesz. A módosított algoritmus lépései a \ref{fig:MyAlgorithm3} ábrán láthatóak. Jól megfigyelhető, hogy az algoritmus csak jobbra és lefelé léphet. Ez a már előbb említett negatív számok elkerülése miatt szükséges.
+
+% Kötelező helyű ábra beszúrása.
+\begin{figure}[H]
+    \centering % Az ábra középre igazítása.
+    \includegraphics[width=0.6\textwidth]{Figures/MyAlgorithm3.png} % Kép beszúrása.
+    \caption{Az ALMA szó titkosítása a módosított algoritmussal} % Az ábra neve.
+    \label{fig:MyAlgorithm3} % Az ábra referenciája.
+\end{figure}
+
 \section{Jelenlegi állapot} % Sorszámozott alcím létrehozása.
 
 \section{Jövőbeli tervek} % Sorszámozott alcím létrehozása.
