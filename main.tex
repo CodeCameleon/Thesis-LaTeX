@@ -358,7 +358,7 @@ Ekkor szembesültem vele, hogy az algoritmus futási ideje borzasztó. Az oka pe
 
 A titkosított szöveg még mindig elég sok információt tartalmazott. Például, hogy hány karakterből állt az eredeti szöveg. Drasztikus lépésnek tűnhet, de egyszerűen kivettem minden jellegű tagolást a titkosított szövegből. Viszont így már nem lehetett vissza fejteni. Ezért arra gondoltam, hogy standardizálom a vektorok méretét a kulcs mérete alapján. Ezt azt jelenti, hogy egy kétszámjegyű magasságú kulcson a függőleges vektorok mindig két számjeggyel lesznek ábrázolva. Ugyan ez érvényes a kulcs szélességére és a vízszintes vektorokra is. Ezzel a módosítással az \ref{fig:MyAlgorithm2} ábrán látható ALMA szó titkosítása az adott kulccsal $002220-4-2$ lesz.
 
-Jól látható, hogy a negatív számok még mindig sok információt adhatnak az eredeti szövegről. A megoldás viszont nagyon egyszerű a problémára. Mind össze le kell korlátozni, hogy az algoritmus nem léphet negatív irányba. Szerencsére ez nem probléma, mivel a végtelenített kulcsnak köszönhetően így is el tud jutni minden karakterbe. Így most már az ALMA szó titkosítása $00222043$ lesz. A módosított algoritmus lépései a \ref{fig:MyAlgorithm3} ábrán láthatóak. Jól megfigyelhető, hogy az algoritmus csak jobbra és lefelé léphet. Ez a már előbb említett negatív számok elkerülése miatt szükséges.
+Jól látható, hogy a negatív számok még mindig sok információt adhatnak az eredeti szövegről. A megoldás viszont nagyon egyszerű a problémára. Mind össze le kell korlátozni, hogy az algoritmus nem léphet negatív irányba. Szerencsére ez nem probléma, mivel a végtelenített kulcsnak köszönhetően így is el tud jutni minden karakterbe. Így most már az ALMA szó titkosítása $00222043$ lesz. A módosított algoritmus lépései az \ref{fig:MyAlgorithm3} ábrán láthatóak. Jól megfigyelhető, hogy az algoritmus csak jobbra és lefelé léphet. Ez a már előbb említett negatív számok elkerülése miatt szükséges.
 
 % Kötelező helyű ábra beszúrása.
 \begin{figure}[H]
@@ -368,7 +368,19 @@ Jól látható, hogy a negatív számok még mindig sok információt adhatnak a
     \label{fig:MyAlgorithm3} % Az ábra referenciája.
 \end{figure}
 
+Ahogy tesztelgettem az algoritmust, arra lettem figyelmes, hogy a futási idő jelentős részét a véletlen karakter választása teszi ki. Azt egy saját lista kollekció megvalósításával tudtam orvosolni. Ez a lista továbbra is a karakterek előfordulását tárolja, viszont eltárolja az utoljára visszaadott elem indexét is. Valamint van egy plusz függvénye, ami az eltárolt index szerint visszaadja a következő elemet, majd megnöveli az indexet egyel. Ha az index eléri a lista végét, akkor a kollekció megkeveri az elemeit, majd az indexet az első elemre állítja. Ez által gyorsítva az algoritmus futását. Valamint garantálva, hogy a többször szereplő karakterek ki is vannak használva, nem csak felesleges helyet foglalnak a kulcsban.
+
 \section{Jelenlegi állapot} % Sorszámozott alcím létrehozása.
+
+Szerintem az algoritmus jelenleg egy nagyon stabil állapotában van. Véleményem szerint nem sok kellene neki, hogy versenyezni tudjon a napjainkban használt algoritmusokkal. Egy mindennapi használatra alkalmas kulcsot láthatunk az \ref{fig:MyAlgorithm4} ábrán. Igaz, ez a kulcs nem alkalmas magyar szövegek titkosítására, mivel nem tartalmaz magyar ékezetes betűk. Ennek ellenére egy általános angol nyelű dokumentumon gond nélkül tud titkosítani.
+
+% Kötelező helyű ábra beszúrása.
+\begin{figure}[H]
+    \centering % Az ábra középre igazítása.
+    \includegraphics[width=0.8\textwidth]{Figures/MyAlgorithm4.png} % Kép beszúrása.
+    \caption{Egy mindennapi használatra alkalmas kulcs} % Az ábra neve.
+    \label{fig:MyAlgorithm4} % Az ábra referenciája.
+\end{figure}
 
 \section{Jövőbeli tervek} % Sorszámozott alcím létrehozása.
 
