@@ -382,7 +382,23 @@ Szerintem az algoritmus jelenleg egy nagyon stabil állapotában van. Vélemény
     \label{fig:MyAlgorithm4} % Az ábra referenciája.
 \end{figure}
 
+A mostani megvalósítás a MathCrypt nevet viseli. A pontos szerkezete az \ref{fig:MyAlgorithm5} ábrán látható. A könnyebb használat érdekében készítettem egy kulcs generátort is. Az \ref{fig:MyAlgorithm4} ábrán látható kulcsot is ezzel hoztam létre. Valamint mind az algoritmus, mind a generátor rendelkezik interfésszel a jövőbeli fejlesztések megkönnyítése érdekében. A \textit{SPoint} egy egyszerű koordinátát ábrázoló struktúra. A \textit{ShuffleList} pedig a már korábban említett beépített keveréssel rendelkező saját lista kollekcióm.
+
+% Kötelező helyű ábra beszúrása.
+\begin{figure}[H]
+    \centering % Az ábra középre igazítása.
+    \includegraphics[width=0.5\textwidth]{Figures/MyAlgorithm5.png} % Kép beszúrása.
+    \caption{A megvalósított algoritmus szerkezete} % Az ábra neve.
+    \label{fig:MyAlgorithm5} % Az ábra referenciája.
+\end{figure}
+
 \section{Jövőbeli tervek} % Sorszámozott alcím létrehozása.
+
+Az algoritmusom rengeteg változtatáson ment már keresztül. Ennek ellenére még közel sincs készen. Itt most nem arra gondolok, hogy teljesítményben lemaradottabb a versenytársaival szemben. Hanem a lehetséges fejlesztési irányokra és funkciókra.
+
+Az egyik ilyen ötletem lehetővé tenné, hogy visszafejtés nélkül megváltoztatjuk a szöveget kódoló kulcsot. Nem olyan értelemben, hogy egy teljesen más kulccsal lehetne elolvasni. Ez integritás szempontjából nem lenne a legjobb döntés. Itt arra kell, gondolni, hogy egy módosító számmal el lehet tolni a már lekódolt szöveg számjegyeit. Valamint ezzel a számmal el kell tolni a kulcs sorait és oszlopait is. Kicsit úgy mint ha a kulcs egy Rubik kocka lenne. Gyalogosan papíron már próbáltam és működik. Viszont a programkód megvalósítása lehet nem lesz a legegyszerűbb. Továbbá meg kell vizsgálni, hogy pontosan milyen hatásokat válthat ki a funkció megvalósítása. Esetlegesen törhetőbbé teszi-e az algoritmust vagy idéz-e valamit más nemkívánatos hatást.
+
+Van még ehhez hasonló pár ötletem az algoritmus javítására. De sajnos a szűkös időkorlát nagyban limitálta az algoritmus fejlődését. Minden esetre nagy élveztem a fejlesztést. Nem bántam meg, hogy belevágtam a kihívásba.
 
 \chapter{Teszteredmények} % Sorszámozott fejezet létrehozása.
 
