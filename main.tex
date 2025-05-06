@@ -320,9 +320,9 @@ A végleges verzió szerint minden algoritmus egyetlen diagramon fog megjelenni.
 
 \section{Elképzelés} % Sorszámozott alcím létrehozása.
 
-Az alap ötletem az volt, hogy egy algoritmus kulcsának növelésével csökkenthetjük az elvégezendő műveletek számát. Ez által csökkenne a futáshoz szükséges idő. Ehhez plusz információval kell ellátnunk a kulcsot, szóval az eddig kulcsok felépítése nem fog működni. Viszont továbbra is szeretném, hogy a kulcsot ki lehessen exportálni szöveges fájlként.
+Az alap ötletem az volt, hogy egy algoritmus kulcsának növelésével csökkenthetjük az elvégezendő műveletek számát. Ez által csökkenne a futáshoz szükséges idő. Ehhez plusz információval kell ellátnunk a kulcsot, szóval az eddigi kulcsok felépítése nem fog működni. Viszont továbbra is szeretném, hogy a kulcsot ki lehessen exportálni szöveges fájlként.
 
-Mivel ez lesz az első ilyen próbálkozásom, ezért egy szimmetrikus kulcs titkosító algoritmust szeretnék készíteni. Személyes meglátásom alapján ezt a legkönnyebb megvalósítani. Jelentősebben egyszerűbb, mint egy aszimmetrikus kulcsú algoritmust. A hasító algoritmusokról nem is beszélve, talán azokat a legnehezebb elkészíteni.
+Mivel ez lesz az első ilyen próbálkozásom, ezért egy szimmetrikus kulcsú titkosító algoritmust szeretnék készíteni. Személyes meglátásom alapján ezt a legkönnyebb megvalósítani. Jelentősebben egyszerűbb, mint egy aszimmetrikus kulcsú algoritmust. A hasító algoritmusokról nem is beszélve, talán azokat a legnehezebb elkészíteni.
 
 \section{A fejlődés folyamata} % Sorszámozott alcím létrehozása.
 
@@ -350,9 +350,9 @@ Mivel egy szónak csak úgy van értelme, hogy a betűk a megfelelő sorrendben 
 
 Az \ref{fig:MyAlgorithm2} ábrán látható az ALMA szó titkosításának lépései. Az első lépés az A betű titkosítása, ami egyszerűen $(0 \mid 0)$ lesz. Ez után el kell jutnunk az L betűbe, ehhez kell két darab 2 egység hosszú vektor, vagyis $(2 \mid 2)$. A következő célpont az M betű. Mivel már a megfelelő sorban vagyunk, ezért csak vízszintes vektor kell. Tehát az esetünkben $(2 \mid 0)$ lesz a megoldás. Végül vissza kell jutnunk az A betűbe. Ehhez a szükséges vektorok $(-4 \mid -2)$ lesznek. Mind ezt összegezve, az eredményünk a $(0 \mid 0), (2 \mid 2), (2 \mid 0), (-4 \mid -2)$ vektorok sorozata lesz.
 
-A következő módosítás amit véghez vittem, a kulcs végtelenítése volt. Ezt úgy kell érteni, hogy az algoritmus szabadon lesétálhat a kulcsról. Amikor ez bekövetkezik, akkor a kulcs átellenes oldalára kerül. Ez azt jelenti, hogy az \ref{fig:MyAlgorithm2} ábrán az algoritmus az O betűből el tud jutni a J betűbe egy $(1 \mid 0)$ mozgással. Ennek tudatosan nincs jelölése a végeredményben, ez is bonyolítva a titkosított szöveg illetéktelen visszafejtését.
+A következő módosítás amit véghez vittem, a kulcs végtelenítése volt. Ezt úgy kell érteni, hogy az algoritmus szabadon lesétálhat a kulcsról. Amikor ez bekövetkezik, akkor a kulcs átellenes oldalára kerül. Ez azt jelenti, hogy az \ref{fig:MyAlgorithm2} ábrán az algoritmus az O betűből el tud jutni a J betűbe egy $(1 \mid 0)$ mozgással. Ennek tudatosan nincs jelölése a végeredményben, ezzel is bonyolítva a titkosított szöveg illetéktelen visszafejtését.
 
-Támadt egy olyan ötletem, hogy egy karakter akár többször is szerepelhetne a kulcsban. Az algoritmus pedig véletlenszerűen választana egyet, majd annak a pozícióját használná a vektorok elkészítéséhez. Ezzel a megoldással egy betűt több különböző módon lehet titkosítani, tovább növelve a biztonságot.
+Támadt egy olyan ötletem, hogy egy karakter akár többször is szerepelhetne a kulcsban. Az algoritmus pedig véletlenszerűen választana egyet, majd annak a pozícióját használná a vektorok elkészítéséhez. Ezzel a megoldással egy betűt több különböző módon lehet titkosítani, ezzel növelve a biztonságot.
 
 Ekkor szembesültem vele, hogy az algoritmus futási ideje borzasztó. Az oka pedig, hogy minden lépés előtt, meg kell vizsgálnia az egész kulcsot, hogy hol található a kövekező betű, ahova el kell jutnia. Ezen úgy sikerült túllépni, hogy a kulcs beállítása után az algoritmus készít magának egy szótárat róla. A szótárban szereplő kulcsok az algoritmus kulcsában megtalálható karakterek, az értékek pedig az előfordulásuk pozícióinak listája. Ezzel jelentősen sikerült lecsökkenteni az algoritmus futási idejét.
 
@@ -372,7 +372,7 @@ Ahogy tesztelgettem az algoritmust, arra lettem figyelmes, hogy a futási idő j
 
 \section{Jelenlegi állapot} % Sorszámozott alcím létrehozása.
 
-Szerintem az algoritmus jelenleg egy nagyon stabil állapotában van. Véleményem szerint nem sok kellene neki, hogy versenyezni tudjon a napjainkban használt algoritmusokkal. Egy mindennapi használatra alkalmas kulcsot láthatunk az \ref{fig:MyAlgorithm4} ábrán. Igaz, ez a kulcs nem alkalmas magyar szövegek titkosítására, mivel nem tartalmaz magyar ékezetes betűk. Ennek ellenére egy általános angol nyelű dokumentumon gond nélkül tud titkosítani.
+Szerintem az algoritmus jelenleg egy nagyon stabil állapotában van. Véleményem szerint nem sok kellene neki, hogy versenyezni tudjon a napjainkban használt algoritmusokkal. Egy mindennapi használatra alkalmas kulcsot láthatunk az \ref{fig:MyAlgorithm4} ábrán. Igaz, ez a kulcs nem alkalmas magyar szövegek titkosítására, mivel nem tartalmaz magyar ékezetes betűket. Ennek ellenére egy általános angol nyelű dokumentumot gond nélkül tud titkosítani.
 
 % Kötelező helyű ábra beszúrása.
 \begin{figure}[H]
@@ -398,7 +398,7 @@ Az algoritmusom rengeteg változtatáson ment már keresztül. Ennek ellenére m
 
 Az egyik ilyen ötletem lehetővé tenné, hogy visszafejtés nélkül megváltoztatjuk a szöveget kódoló kulcsot. Nem olyan értelemben, hogy egy teljesen más kulccsal lehetne elolvasni. Ez integritás szempontjából nem lenne a legjobb döntés. Itt arra kell, gondolni, hogy egy módosító számmal el lehet tolni a már lekódolt szöveg számjegyeit. Valamint ezzel a számmal el kell tolni a kulcs sorait és oszlopait is. Kicsit úgy mint ha a kulcs egy Rubik kocka lenne. Gyalogosan papíron már próbáltam és működik. Viszont a programkód megvalósítása lehet nem lesz a legegyszerűbb. Továbbá meg kell vizsgálni, hogy pontosan milyen hatásokat válthat ki a funkció megvalósítása. Esetlegesen törhetőbbé teszi-e az algoritmust vagy idéz-e valamit más nemkívánatos hatást.
 
-Van még ehhez hasonló pár ötletem az algoritmus javítására. De sajnos a szűkös időkorlát nagyban limitálta az algoritmus fejlődését. Minden esetre nagy élveztem a fejlesztést. Nem bántam meg, hogy belevágtam a kihívásba.
+Van még ehhez hasonló pár ötletem az algoritmus javítására. De sajnos a szűkös időkorlát nagyban limitálta az algoritmus fejlődését. Minden esetre nagyon élveztem a fejlesztést. Nem bántam meg, hogy belevágtam a kihívásba.
 
 \chapter{Teszteredmények} % Sorszámozott fejezet létrehozása.
 
