@@ -302,6 +302,18 @@ A végleges verzió szerint minden algoritmus egyetlen diagramon fog megjelenni.
 
 \section{Az alkalmazás alapjai} % Sorszámozott alcím létrehozása.
 
+Mivel minden részt külön osztálykönyvtárba helyeztem, ezért az áttekinthetőség kedvért készítettem egy \textit{Directory.Packages.props} fájlt a NuGet csomagok központosított kezelésére. Így az összes csomag verziója egységes az egész projekten keresztül. A fájl pontos tartalma a \ref{fig:Implementation1} ábrán látható. Megfigyelhető, hogy a fájl elején lévő beállítást igazra állítottam. Ez azért történt így, mert ennek köszönhetően a fordító hibát fog dobni, ha valamelyik osztálykönyvtárban megpróbálok egy csomag verziót definiálni. Ez által garantálva, hogy nem lesz verzióeltérés a NuGet csomagok között.
+
+% Kötelező helyű ábra beszúrása.
+\begin{figure}[H]
+    \centering % Az ábra középre igazítása.
+    \includegraphics[width=0.8\textwidth]{Figures/Implementation1.png} % Kép beszúrása.
+    \caption{A Directory.Packages.props fájl tartalma} % Az ábra neve.
+    \label{fig:Implementation1} % Az ábra referenciája.
+\end{figure}
+
+Szükségesnek éreztem készíteni az alkalmazás számára egy központi \textit{appsettings.json} fájlt is. Ide kerül minden beállítás ami több mint egy osztálykönyvtárt érint. Továbbá aki jártasabb az ASP.NET Core webalkalmazásokban az tudja, hogy minden alkalmazásnak automatikusan generálódik egy \textit{appsettings.json} és egy \textit{appsettings.Development.json}. Figyelembe véve, hogy nekem már van egy központilag elérhető ilyen jellegú fájlom, ezért ezt a két automatikusan létrehozott fájl töröltem. Valamit a könnyebb és egységes kezelhetőség érdekében készítettem egy \textit{GlobalConfiguration} statikus osztályt, amely teljesen elrejti az \textit{appsettings.json} fájt. Ez az osztály fogja kiszolgálni a program minden részét, ami szeretne valamilyen információt a konfigurációs fájlból. Ez által biztosítva, hogy a futás közben történő konfigurációs fájl módosítása esetén mindenhol észlelődik a változtatás. Továbbá, hogy soha nem lesz két azonos példány beolvasva az \textit{appsettings.json} fájlból a memóriába. Értelem szerűen az ASP.NET Core alkalmazásnak is ő adja át a konfigurációs fájlt.
+
 \section{Algoritmusok} % Sorszámozott alcím létrehozása.
 
 \section{NUnit tesztek} % Sorszámozott alcím létrehozása.
