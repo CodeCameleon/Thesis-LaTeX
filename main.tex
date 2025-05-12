@@ -316,6 +316,28 @@ Szükségesnek éreztem készíteni az alkalmazás számára egy központi \text
 
 \section{Algoritmusok} % Sorszámozott alcím létrehozása.
 
+Jelen pillanatban 12 algoritmus van megvalósítva az alkalmazásban. 5 szimmetrikus, 4 aszimmetrikus és 3 hasító. Ebből az egyik szimmetrikus a saját algoritmusom. Ezek mind a már korábban említett interfészeket használják. Továbbá a könnyebb kezelhetőség érdekében a megvalósításokat hozzá rendeltem az \textit{EAlgorithmName} enumhoz. Ennek a pontos módja a \ref{fig:Implementation2} ábrán látható. Megfigyelhető, hogy a szótár szerkezet kiválóan alkalmas az algoritmus osztályok enum értékekhez való kapcsolására.
+
+% Kötelező helyű ábra beszúrása.
+\begin{figure}[H]
+    \centering % Az ábra középre igazítása.
+    \includegraphics[width=0.8\textwidth]{Figures/Implementation2.png} % Kép beszúrása.
+    \caption{A megvalósítások és az enum értékek összekapcsolása} % Az ábra neve.
+    \label{fig:Implementation2} % Az ábra referenciája.
+\end{figure}
+
+Mivel nem a legszakszerűbb egyszerűen publikus láthatósággal kiengedni a szótárat, ezért készítettem egy publikus kiterjesztő függvényt az \textit{EAlgorithmName} enumra. Ez a függvény a \ref{fig:Implementation3} ábrán látható. A működése nagyon egyszerű, mindössze megpróbálja kivenni a szótárból az adott enum értéket. Ha sikerült neki, akkor visszatér a típussal. Ha nem sikerült, akkor pedig hibát dob.
+
+% Kötelező helyű ábra beszúrása.
+\begin{figure}[H]
+    \centering % Az ábra középre igazítása.
+    \includegraphics[width=\textwidth]{Figures/Implementation3.png} % Kép beszúrása.
+    \caption{A megvalósítást lekérő kiterjesztő függvény} % Az ábra neve.
+    \label{fig:Implementation3} % Az ábra referenciája.
+\end{figure}
+
+Az \textit{ErrorMessages} egy statikus osztály, amely tartalmazza hibaüzeneteket. Jelen állapotában nincs sok feladata, mindössze tárolja az alkalmazás összes hiba esetén dobandó üzenetét. Viszont lehetséges, hogy a jövőben szükséges lesz ezeket akár több nyelve is lefordítani. Ekkor az egységes kiszolgáló osztály nagyban megkönnyíti a fejlesztő munkáját. Hiszen a függvényeket csap egy plusz paraméterrel kell ellátni.
+
 \section{NUnit tesztek} % Sorszámozott alcím létrehozása.
 
 \section{Tesztesetek automatizálása} % Sorszámozott alcím létrehozása.
