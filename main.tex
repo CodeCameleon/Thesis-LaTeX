@@ -340,6 +340,26 @@ Az \textit{ErrorMessages} egy statikus osztály, amely tartalmazza hibaüzenetek
 
 \section{NUnit tesztek} % Sorszámozott alcím létrehozása.
 
+Ahogy már az előző fejezetben is említettem, két tulajdonságot tesztel az alkalmazás. Az algoritmusok futási idejét és memóriahasználatát. Ezek a tesztek a \textit{Tests.Algorithm} osztály könyvtárban találhatóak. Ugyan itt van még egy \textit{DatabaseSetUp} nevű osztály is, mely a tesztek előkészítését és lezárását végzi. Erre azért van szükség, mert a tesztek az eredményeket az adatbázisban tárolják. Valamit az algoritmusokat és a teszteseteket is ő biztosítja a tesztek számára.
+
+% Kötelező helyű ábra beszúrása.
+\begin{figure}[H]
+    \centering % Az ábra középre igazítása.
+    \includegraphics[width=0.7\textwidth]{Figures/Implementation4.png} % Kép beszúrása.
+    \caption{A futási időt mérő NUnit teszt} % Az ábra neve.
+    \label{fig:Implementation4} % Az ábra referenciája.
+\end{figure}
+
+A futási idő tesztelése a nyelvbe beépített \textit{Stopwatch} osztállyal történik. A futási időbe csak az osztály \textit{Encrypt} és \textit{Decrypt} függvénye számítanak bele, maga az osztály létrehozása nem. Ennek a pontos módja a \ref{fig:Implementation4} ábrán látható. A memóriahasználat mérése pedig a nyelv szemétgyűjtőjével történik. Eredetileg a TraceEvent csomaggal akartam csinálni, de az eredmények megközelítőleg azonosak a két módszernél. Ezért maradtam az egyszerűbb változatnál. A megvalósítás a \ref{fig:Implementation5} ábrán látható. Megfigyelhető, hogy a memória három helyen van lemérve. A tényleges eredmények ezek különbségéből vannak kiszámolva. Sajnos a teszteknek még így is van egy kis hibalehetősége, ezért többször kell futtatni és az eredményeket átlagolni kell.
+
+% Kötelező helyű ábra beszúrása.
+\begin{figure}[H]
+    \centering % Az ábra középre igazítása.
+    \includegraphics[width=0.7\textwidth]{Figures/Implementation5.png} % Kép beszúrása.
+    \caption{A memóriahasználatot mérő NUnit teszt} % Az ábra neve.
+    \label{fig:Implementation5} % Az ábra referenciája.
+\end{figure}
+
 \section{Tesztesetek automatizálása} % Sorszámozott alcím létrehozása.
 
 \section{Adattárolás} % Sorszámozott alcím létrehozása.
