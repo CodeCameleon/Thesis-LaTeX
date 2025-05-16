@@ -338,6 +338,10 @@ Mivel nem a legszakszerűbb egyszerűen publikus láthatósággal kiengedni a sz
 
 Az \textit{ErrorMessages} egy statikus osztály, amely tartalmazza hibaüzeneteket. Jelen állapotában nincs sok feladata, mindössze tárolja az alkalmazás összes hiba esetén dobandó üzenetét. Viszont lehetséges, hogy a jövőben szükséges lesz ezeket akár több nyelve is lefordítani. Ekkor az egységes kiszolgáló osztály nagyban megkönnyíti a fejlesztő munkáját. Hiszen a függvényeket csap egy plusz paraméterrel kell ellátni.
 
+\section{Adattárolás} % Sorszámozott alcím létrehozása.
+
+\break % Ez kb. egy oldal lesz.
+
 \section{NUnit tesztek} % Sorszámozott alcím létrehozása.
 
 Ahogy már az előző fejezetben is említettem, két tulajdonságot tesztel az alkalmazás. Az algoritmusok futási idejét és memóriahasználatát. Ezek a tesztek a \textit{Tests.Algorithm} osztály könyvtárban találhatóak. Ugyan itt van még egy \textit{DatabaseSetUp} nevű osztály is, mely a tesztek előkészítését és lezárását végzi. Erre azért van szükség, mert a tesztek az eredményeket az adatbázisban tárolják. Valamit az algoritmusokat és a teszteseteket is ő biztosítja a tesztek számára.
@@ -362,9 +366,29 @@ A futási idő tesztelése a nyelvbe beépített \textit{Stopwatch} osztállyal 
 
 \section{Tesztesetek automatizálása} % Sorszámozott alcím létrehozása.
 
-\section{Adattárolás} % Sorszámozott alcím létrehozása.
+Véleményem szerint nem a legpraktikusabb minden tesztesetet kézzel megírni. Viszont nem is akarom kizárni a lehetőséget, hogy valaki ezt megtegye. Ezért biztosítottam minkét opcióra lehetőséget az alkalmazásban.
 
-\section{A webalkalmazás} % Sorszámozott alcím létrehozása.
+A \ref{fig:Implementation6} ábrán látható az erre a célra készített grafikus felület. Itt a felhasználó eldöntheti, hogy a konkrét tesztesetet szertné-e megadni vagy a generáláshoz szükséges paramétereket. Első ránézésre lehet, hogy nem tűnik a legintuitívebb űrlapnak. Ezért nagyon erősen van validálva és rendkívül informatív hibaüzeneteket add vissza a felhasználó számára. Ezzel is segítve a helyes használatát, akár egy hozzá nem értő személynek is.
+
+% Kötelező helyű ábra beszúrása.
+\begin{figure}[H]
+    \centering % Az ábra középre igazítása.
+    \fbox{\includegraphics[width=0.98\textwidth]{Figures/Implementation6.png}} % Kép beszúrása.
+    \caption{A tesztesetet hozzáadó felület} % Az ábra neve.
+    \label{fig:Implementation6} % Az ábra referenciája.
+\end{figure}
+
+Ha a felhasználó úgy dönt, hogy az alkalmazással szeretne generáltatni egy tesztesetett, akkor a felületen megadott paramétereket a \ref{fig:Implementation7} ábrán látható függvény fogja feldolgozni. A létrehozott teszteset a \textit{Bemenet} mezőben látható a felhasználó számára. Ha esetleg elégedetlen vele, akkor kézzel módosíthatja is. A teljes \textit{Bemenet} mező törlése esetén pedig egy új érték lesz létrehozva az űrlap beadásakor.
+
+A memória túltöltésének elkerülése érdekében nem a ténylegesen megadott méretű karakterlánc keletkezik. Hanem egy 32 bájtos karakterlánc, ami majd tesztelésnél lesz szekvenciálisan megnövelve, hogy elérje a kívánt méretett. Továbbá a maximális teszteset méret is le van korlátozva 100 megabájtra. Erre azért volt szükség, mert csak egy 8 gigabájtal rendelkező laptop áll rendelkezésemre az alkalmazás tesztelésére. Természetesen ezek az értékek nincsenek beleégetve a kódba. Az alkalmazás az \textit{appsettings.json} fájlból olvassa be őket a már korábban említett \textit{GlobalConfiguration} osztály segítségével.
+
+% Kötelező helyű ábra beszúrása.
+\begin{figure}[H]
+    \centering % Az ábra középre igazítása.
+    \includegraphics[width=0.8\textwidth]{Figures/Implementation7.png} % Kép beszúrása.
+    \caption{A tesztesetet generáló függvény} % Az ábra neve.
+    \label{fig:Implementation7} % Az ábra referenciája.
+\end{figure}
 
 \section{Tesztek integrálása} % Sorszámozott alcím létrehozása.
 
