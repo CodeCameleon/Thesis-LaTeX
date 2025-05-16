@@ -392,6 +392,20 @@ A memória túltöltésének elkerülése érdekében nem a ténylegesen megadot
 
 \section{Tesztek integrálása} % Sorszámozott alcím létrehozása.
 
+Most már tudunk tesztelni. Viszont a teszteket nem lehet látni a felhasználó szemszögéből. Ezért kell egy grafikus felület, ahol a felhasználó le tudja futtatni a neki tetsző teszteket. Mivel a tesztesetek bemeneteinek kezelésére már van egy felület, ezért most ezzel nem kell foglalkozni.
+
+Ennek a megvalósítása látható a \ref{fig:Implementation8} ábrán. A lap tetején lévő gombokkal lehet lefuttatni a kívánt tesztet. Továbbá megfigyelhető, hogy nincs semmilyen mód kiválasztani, hogy melyik tesztesetet használják az NUnit tesztek. Ez nem véletlen, mert ez a tesztesetek oldalán található. Pontosabban az \textit{Engedélyezve} paraméter ami eldönti, hogy a tesztek használhatják-e.
+
+A tesztek pontos eredményei nem láthatóak a felületről. Ez is egy tudatos döntés volt. Tekintve, hogy könnyedén lehet akár több ezer teszteredmény is egyetlen futásból. Ezért csak az egyes tesztek sikeressége van megjelenítve. Meglátásom szerint ez is elegendő információval szolgál a felhasználó számára.
+
+% Kötelező helyű ábra beszúrása.
+\begin{figure}[H]
+    \centering % Az ábra középre igazítása.
+    \fbox{\includegraphics[width=0.98\textwidth]{Figures/Implementation8.png}} % Kép beszúrása.
+    \caption{Az NUnit tesztek a felületen} % Az ábra neve.
+    \label{fig:Implementation8} % Az ábra referenciája.
+\end{figure}
+
 \section{Eredmények megjelenítése} % Sorszámozott alcím létrehozása.
 
 \chapter{Saját algoritmus} % Sorszámozott fejezet létrehozása.
