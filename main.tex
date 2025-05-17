@@ -340,7 +340,23 @@ Az \textit{ErrorMessages} egy statikus osztály, amely tartalmazza hibaüzenetek
 
 \section{Adattárolás} % Sorszámozott alcím létrehozása.
 
-\break % Ez kb. egy oldal lesz.
+Az adatok tárolása egy relációs adatbázisban történik. Azon belül is egy SQLite adatbázisban. Szerencsére ezt nem kellet kézzel megírnom. Mert az Entity Framework Core-t \cite{entityFrameworkCore} használtam hozzá. Így időt és energiát spórolva, amit az alkalmazás többi részére fordíthattam.
+
+Aki esetleg nem ismerné, az Entity Framework Core egy NuGet csomag. Amely egy csatlakozási felületet biztosít az adatbázishoz. Ezen kívül a Code First megközelítéssel dolgozik. Ezt azt jelenti, hogy nem kell SQL kódokat írnom, hogy létrehozzam az adatbázis sémáját. A csomag ezt elvégzi a háttérben. A C\# kód alapján létre tudja hozni az adatbázist, ez által megkönnyítve a fejlesztő dolgát.
+
+Ebben a csomagban egy adatbázis sémát jelölő osztály mindig a \textit{DbContext} osztályból származik. Itt találhatóak meg a beépített függvények, mint az \textit{OnModelCreating} és az \textit{OnConfiguring}. Az utóbbi szolgál az általános beállításokra, mint például a kapcsolat létrehozásához szükséges információ átadása. Még az előbbi a séma létrehozásához szükséges szabályok definiálására.
+
+% Kötelező helyű ábra beszúrása.
+\begin{figure}[H]
+    \centering % Az ábra középre igazítása.
+    \includegraphics[width=0.8\textwidth]{Figures/Implementation10.png} % Kép beszúrása.
+    \caption{Egy részlet az adatbázist létrehozó függvényből} % Az ábra neve.
+    \label{fig:Implementation10} % Az ábra referenciája.
+\end{figure}
+
+Ez én esetemben nem volt szükség felülírni a \textit{OnConfiguring} függvényt. Az \textit{OnModelCreating} függvényt viszont értelem szerűen igen. Ennek egy része látható a \ref{fig:Implementation10} ábrán. Megfigyelhető, hogy az Entity Framework Core kiválóan alkalmas enum értékek feltöltésére az adatbázisba. Ez részben a LINQ lekérdezéseknek is köszönhető. Minden esetre sokkal könnyebb mint Java Spring Boot-ban. Ott létre kell hozni egy külön osztályt, ami a \textit{CommandLineRunner} interfészből származik. Ez által sokkal körülményesebb egy ilyen műveletet elvégezni.
+
+Az ábrán fölötte pedig látható egy külső kulcs beállítása. Észrevehető, hogy nem csak a tényleges külső kulcs van beállítva, hanem úgy nevezett navigációs tulajdonságok is. Ezek arra szolgálnak, hogy a két adatbázis tábla között egyszerű átjárást biztosítson a C\# kódban.
 
 \section{NUnit tesztek} % Sorszámozott alcím létrehozása.
 
