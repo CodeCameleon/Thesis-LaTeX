@@ -408,6 +408,22 @@ A tesztek pontos eredményei nem láthatóak a felületről. Ez is egy tudatos d
 
 \section{Eredmények megjelenítése} % Sorszámozott alcím létrehozása.
 
+Már csak a teszteredmények megjelenítése van hátra. Mivel ezt tartom az alkalmazás legfontosabb és egyben a leglátványosabb részének is, ezért a fő oldalon kapott helyet. Bárki aki betoppan az oldalra először ezt fogja meglátni.
+
+Az előző fejezetben már részletesen leírtam, hogy miket és hogyan fogok megjeleníteni a diagramon. A \ref{fig:Implementation9} ábrán látható az elkészült felület. Megfigyelhető, hogy közvetlenül a cím alatt található a már korábban említett szűrésekre alkalmas lenyíló menük. Ezekkel a felhasználó kedvére szabhatja, hogy mely értékek jelenjenek meg a diagramon. A tőlük jobbra található gombbal lehet alkalmazni a beállított szűrési feltételt. A balra találhatóval pedig lehetőség van letölteni az aktuálisan megjelenített diagramot.
+
+% Kötelező helyű ábra beszúrása.
+\begin{figure}[H]
+    \centering % Az ábra középre igazítása.
+    \fbox{\includegraphics[width=0.98\textwidth]{Figures/Implementation9.png}} % Kép beszúrása.
+    \caption{A teszteredményeket megjelenítő grafikus felület} % Az ábra neve.
+    \label{fig:Implementation9} % Az ábra referenciája.
+\end{figure}
+
+A felhasználónak van további lehetősége is a diagram testreszabását illetően. A kövezetlenül az ábra felett lévő színmagyarázatra kattintva elrejtheti vagy éppen megjelenítheti az adott értékeket a grafikonon. Így ha a felhasználó nem szertné látni az összes eredményt pontok ként a diagramon, akkor egy kattintással eltüntetheti őket. Valamint arra is hasznos lehet ha van egy nagyon kiugró érték az egyik egyenesen. Mert ilyenkor a többi általában nagyon összeszűrűsödik. Ekkor célszerű lehet elrejteni az adott egyenest, ez által átláthatóbbá téve a diagramot.
+
+Sajnos a konkrét teszt szintű szűrésre jelenleg nincs lehetőség. Viszont nem is tartom a legjobb ötletnek, mert az ilyen jellegű teszteknél téves következtetést lehet feltételezni, ha csak az általunk kiválasztot eredményekre alapozzuk, az összes helyett. Esetleg egy intervallum szűrést tudok még elképzelni a teszteretek méretére, ami hasznos lehet. Vagy akár valamilyen módon figyelembe venni, hogy milyen típusú karaktereket tartalmaz az adott teszteset.
+
 \chapter{Saját algoritmus} % Sorszámozott fejezet létrehozása.
 
 \section{Elképzelés} % Sorszámozott alcím létrehozása.
