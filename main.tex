@@ -526,13 +526,109 @@ Van még ehhez hasonló pár ötletem az algoritmus javítására. De sajnos a s
 
 \chapter{Teszteredmények} % Sorszámozott fejezet létrehozása.
 
+\section{A tesztelés folyamata} % Sorszámozott alcím létrehozása.
+
+Az algoritmusok tesztelésénél igyekeztem a tőlem telhető legvalósághűbb módon tesztelni. Sajnos voltak bizonyos korátok, amik ezt limitálták. Például, hogy az ElGamal algoritmusnak a megvalósítása nem tud kilobájtos nagyságrendű bemenetet titkosítani. Valamint az RSA algoritmusnál a nagyobb bemenetek ismeretlen hibát eredményeztek.
+
+% Kötelező helyű ábra beszúrása.
+\begin{figure}[H]
+    \centering % Az ábra középre igazítása.
+    \fbox{\includegraphics[width=0.98\textwidth]{Figures/TestCases.png}} % Kép beszúrása.
+    \caption{A tesztelésre használt tesztesetek} % Az ábra neve.
+    \label{fig:TestCases} % Az ábra referenciája.
+\end{figure}
+
+A \ref{fig:TestCases} ábrán láthatóak a tesztesetek, amiket használtam az összes algoritmus tesztelésére. Megfigyelhető, hogy a tesztelt intervallum elég kicsi. Ezt részben a korábban említett hibák miatt van. Továbbá, hogy a tesztesetek vegyesen tartalmaznak minden fajta karaktert, kivéve vezérlő karaktereket.
+
+Az algoritmusokat minden teszt esetre öt alkalommal futtattam le. Főként azért, hogy az esetleges mérési hibák ne eredményezzenek téves következtetéseket. Vitatható, hogy a minta nagysága elegendő-e. Meglátásom szerint, már ekkora mintánál is észrevehető a mérési hiba okozta eltérések.
+
+Tehát összegezve, 12 algoritmusra futtattam egy 10 értékből álló tesztkészletet. Két tulajdonság alapján és minden tesztre 5 alkalommal. Ezt azt jelenti, hogy 1200 teszt eredménye van az alkalmazás adatbázisában. Véleményem szerint ez a szakdolgozat céljainak tökéletesen elegendő. Figyelembe véve, hogy ez értékek demonstrációs szerepet töltenek be.
+
 \section{Szimmetrikus algoritmusok} % Sorszámozott alcím létrehozása.
+
+% Kötelező helyű ábra beszúrása.
+\begin{figure}[H]
+    \centering % Az ábra középre igazítása.
+    \includegraphics[width=\textwidth]{Figures/SymmetricEncryptionRunTime.png} % Kép beszúrása.
+    \caption{A szimmetrikus algoritmusokkal végzett titkosítás futási idő eredményei} % Az ábra neve.
+    \label{fig:SymmetricEncryptionRunTime} % Az ábra referenciája.
+\end{figure}
+
+% Kötelező helyű ábra beszúrása.
+\begin{figure}[H]
+    \centering % Az ábra középre igazítása.
+    \includegraphics[width=\textwidth]{Figures/SymmetricDecryptionRunTime.png} % Kép beszúrása.
+    \caption{A szimmetrikus algoritmusokkal végzett visszafejtés futási idő eredményei} % Az ábra neve.
+    \label{fig:SymmetricDecryptionRunTime} % Az ábra referenciája.
+\end{figure}
+
+% Kötelező helyű ábra beszúrása.
+\begin{figure}[H]
+    \centering % Az ábra középre igazítása.
+    \includegraphics[width=\textwidth]{Figures/SymmetricEncryptionMemoryUsage.png} % Kép beszúrása.
+    \caption{A szimmetrikus algoritmusokkal végzett titkosítás memóriahasználat eredményei} % Az ábra neve.
+    \label{fig:SymmetricEncryptionMemoryUsage} % Az ábra referenciája.
+\end{figure}
+
+% Kötelező helyű ábra beszúrása.
+\begin{figure}[H]
+    \centering % Az ábra középre igazítása.
+    \includegraphics[width=\textwidth]{Figures/SymmetricDecryptionMemoryUsage.png} % Kép beszúrása.
+    \caption{A szimmetrikus algoritmusokkal végzett visszafejtés memóriahasználat eredményei} % Az ábra neve.
+    \label{fig:SymmetricDecryptionMemoryUsage} % Az ábra referenciája.
+\end{figure}
 
 \section{Aszimmetrikus algoritmusok} % Sorszámozott alcím létrehozása.
 
+% Kötelező helyű ábra beszúrása.
+\begin{figure}[H]
+    \centering % Az ábra középre igazítása.
+    \includegraphics[width=\textwidth]{Figures/AsymmetricEncryptionRunTime.png} % Kép beszúrása.
+    \caption{Az aszimmetrikus algoritmusokkal végzett titkosítás futási idő eredményei} % Az ábra neve.
+    \label{fig:AsymmetricEncryptionRunTime} % Az ábra referenciája.
+\end{figure}
+
+% Kötelező helyű ábra beszúrása.
+\begin{figure}[H]
+    \centering % Az ábra középre igazítása.
+    \includegraphics[width=\textwidth]{Figures/AsymmetricDecryptionRunTime.png} % Kép beszúrása.
+    \caption{Az aszimmetrikus algoritmusokkal végzett visszafejtés futási idő eredményei} % Az ábra neve.
+    \label{fig:AsymmetricDecryptionRunTime} % Az ábra referenciája.
+\end{figure}
+
+% Kötelező helyű ábra beszúrása.
+\begin{figure}[H]
+    \centering % Az ábra középre igazítása.
+    \includegraphics[width=\textwidth]{Figures/AsymmetricEncryptionMemoryUsage.png} % Kép beszúrása.
+    \caption{Az aszimmetrikus algoritmusokkal végzett titkosítás memóriahasználat eredményei} % Az ábra neve.
+    \label{fig:AsymmetricEncryptionMemoryUsage} % Az ábra referenciája.
+\end{figure}
+
+% Kötelező helyű ábra beszúrása.
+\begin{figure}[H]
+    \centering % Az ábra középre igazítása.
+    \includegraphics[width=\textwidth]{Figures/AsymmetricDecryptionMemoryUsage.png} % Kép beszúrása.
+    \caption{Az aszimmetrikus algoritmusokkal végzett visszafejtés memóriahasználat eredményei} % Az ábra neve.
+    \label{fig:AsymmetricDecryptionMemoryUsage} % Az ábra referenciája.
+\end{figure}
+
 \section{Hasító algoritmusok} % Sorszámozott alcím létrehozása.
 
-\section{A saját algoritmusom} % Sorszámozott alcím létrehozása.
+% Kötelező helyű ábra beszúrása.
+\begin{figure}[H]
+    \centering % Az ábra középre igazítása.
+    \includegraphics[width=\textwidth]{Figures/HashingEncryptionRunTime.png} % Kép beszúrása.
+    \caption{A hasító algoritmusokkal végzett titkosítás futási idő eredményei} % Az ábra neve.
+    \label{fig:HashingEncryptionRunTime} % Az ábra referenciája.
+\end{figure}
+
+% Kötelező helyű ábra beszúrása.
+\begin{figure}[H]
+    \centering % Az ábra középre igazítása.
+    \includegraphics[width=\textwidth]{Figures/HashingEncryptionMemoryUsage.png} % Kép beszúrása.
+    \caption{A hasító algoritmusokkal végzett titkosítás memóriahasználat eredményei} % Az ábra neve.
+    \label{fig:HashingEncryptionMemoryUsage} % Az ábra referenciája.
+\end{figure}
 
 \chapter{Összefoglalás} % Sorszámozott fejezet létrehozása.
 
