@@ -546,37 +546,47 @@ Tehát összegezve, 12 algoritmusra futtattam egy 10 értékből álló tesztké
 
 \section{Szimmetrikus algoritmusok} % Sorszámozott alcím létrehozása.
 
+Először is nézzük a szimmetrikus algoritmusok futási idő eredményeit. Azon belül is a titkosítás folyamata során. Ez a \ref{fig:SymmetricEncryptionRunTime} ábrán látható. Egyből kiszűrható, hogy az AES algoritmusnak jelentősen több idő kellet a 10, 20, 40 és 60 bájtos értékeknél, mint a többinek. A többszöri futtatás is alátámasztja ezt. Viszont az utolsó három értékben már szinte teljesen azonos eredmények vannak az összesnél.
+
 % Kötelező helyű ábra beszúrása.
 \begin{figure}[H]
     \centering % Az ábra középre igazítása.
-    \includegraphics[width=\textwidth]{Figures/SymmetricEncryptionRunTime.png} % Kép beszúrása.
+    \includegraphics[width=0.8\textwidth]{Figures/SymmetricEncryptionRunTime.png} % Kép beszúrása.
     \caption{A szimmetrikus algoritmusokkal végzett titkosítás futási idő eredményei} % Az ábra neve.
     \label{fig:SymmetricEncryptionRunTime} % Az ábra referenciája.
 \end{figure}
 
+A visszafejtésnél is nagyon hasonló a helyzet. A \ref{fig:SymmetricDecryptionRunTime} ábrán ugyan kicsit kisebb az AES algoritmusnak a kiugrása a többitől, te továbbra is megfigyelhető. A két ábra között rengeteg a hasonlóság. Megfigyelhető, hogy ugyan úgy viselkednek az algoritmusok titkosító és visszafejtő függvényeik futási idő tekintetében. Valamint, hogy a diagram elején lévő kilengés valószínűleg csak a megvalósításból ered. Tekintve, hogy már az utolsó pár mért értékben eltűnik ez a tendencia.
+
 % Kötelező helyű ábra beszúrása.
 \begin{figure}[H]
     \centering % Az ábra középre igazítása.
-    \includegraphics[width=\textwidth]{Figures/SymmetricDecryptionRunTime.png} % Kép beszúrása.
+    \includegraphics[width=0.8\textwidth]{Figures/SymmetricDecryptionRunTime.png} % Kép beszúrása.
     \caption{A szimmetrikus algoritmusokkal végzett visszafejtés futási idő eredményei} % Az ábra neve.
     \label{fig:SymmetricDecryptionRunTime} % Az ábra referenciája.
 \end{figure}
 
-% Kötelező helyű ábra beszúrása.
-\begin{figure}[H]
-    \centering % Az ábra középre igazítása.
-    \includegraphics[width=\textwidth]{Figures/SymmetricEncryptionMemoryUsage.png} % Kép beszúrása.
-    \caption{A szimmetrikus algoritmusokkal végzett titkosítás memóriahasználat eredményei} % Az ábra neve.
-    \label{fig:SymmetricEncryptionMemoryUsage} % Az ábra referenciája.
-\end{figure}
+A memóriahasználatnál sokkal stabilabbak az eredmények. Ez alatt arra gondolok, hogy itt is megvolt az öt futás minden tesztesetben. Viszont szemel látható, hogy nincsenek kósza pontok a diagramokon. Ez azért van, mert mind az öt mérés során azonos eredmények keletkeztek minden tesztesetnél.
 
 % Kötelező helyű ábra beszúrása.
 \begin{figure}[H]
     \centering % Az ábra középre igazítása.
-    \includegraphics[width=\textwidth]{Figures/SymmetricDecryptionMemoryUsage.png} % Kép beszúrása.
+    \includegraphics[width=0.8\textwidth]{Figures/SymmetricEncryptionMemoryUsage.png} % Kép beszúrása.
+    \caption{A szimmetrikus algoritmusokkal végzett titkosítás memóriahasználat eredményei} % Az ábra neve.
+    \label{fig:SymmetricEncryptionMemoryUsage} % Az ábra referenciája.
+\end{figure}
+
+A titkosítás során felhasznált memória a \ref{fig:SymmetricEncryptionMemoryUsage} ábrán látható. A saját algoritmusomat leszámítva az összes tesztelt algoritmus megközelítőleg ugyan annyi memóriát használ. Ez az állítás még inkább igaz a visszafejtésre, ami a \ref{fig:SymmetricDecryptionMemoryUsage} ábrán látható. Itt szinte teljes átfedésben vannak az egyenesek.
+
+% Kötelező helyű ábra beszúrása.
+\begin{figure}[H]
+    \centering % Az ábra középre igazítása.
+    \includegraphics[width=0.8\textwidth]{Figures/SymmetricDecryptionMemoryUsage.png} % Kép beszúrása.
     \caption{A szimmetrikus algoritmusokkal végzett visszafejtés memóriahasználat eredményei} % Az ábra neve.
     \label{fig:SymmetricDecryptionMemoryUsage} % Az ábra referenciája.
 \end{figure}
+
+A saját algoritmusom minden diagramon kék színnel van jelölve. Véleményem szerint elég jól követi a többi algoritmus által felállított elvárt teljesítményt. A titkosítás során használt memórián talán lehetne még egy kicsit javítani. De az összképet nézve elégedett vagyok a jelenlegi állapotával.
 
 \section{Aszimmetrikus algoritmusok} % Sorszámozott alcím létrehozása.
 
