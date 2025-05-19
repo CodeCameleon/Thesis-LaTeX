@@ -632,18 +632,22 @@ A visszafejtés a \ref{fig:AsymmetricDecryptionMemoryUsage} ábrán látható é
 
 \section{Hasító algoritmusok} % Sorszámozott alcím létrehozása.
 
-% Kötelező helyű ábra beszúrása.
-\begin{figure}[H]
-    \centering % Az ábra középre igazítása.
-    \includegraphics[width=\textwidth]{Figures/HashingEncryptionRunTime.png} % Kép beszúrása.
-    \caption{A hasító algoritmusokkal végzett titkosítás futási idő eredményei} % Az ábra neve.
-    \label{fig:HashingEncryptionRunTime} % Az ábra referenciája.
-\end{figure}
+Már csak a hasító algoritmusok vannak hátra. Náluk szerencsére nem lesz olyan sok a látnivaló, hiszen a visszafejtés nem lehetséges. A \ref{fig:HashingEncryptionRunTime} ábrán látható a futási idő eredményük. Kísértetiesen hasonló a szimmetrikus algoritmusok eredményéhez. Mind a négy algoritmusban láthatunk kiugrásokat azonos helyeken. Nem meglepő módon az SHA-256 a leggyorsabb. Szóval az idő kritikus helyeken őt a legcélszerűbb használni.
 
 % Kötelező helyű ábra beszúrása.
 \begin{figure}[H]
     \centering % Az ábra középre igazítása.
-    \includegraphics[width=\textwidth]{Figures/HashingEncryptionMemoryUsage.png} % Kép beszúrása.
+    \includegraphics[width=0.8\textwidth]{Figures/HashingEncryptionRunTime.png} % Kép beszúrása.
+    \caption{A hasító algoritmusokkal végzett titkosítás futási idő eredményei} % Az ábra neve.
+    \label{fig:HashingEncryptionRunTime} % Az ábra referenciája.
+\end{figure}
+
+A \ref{fig:HashingEncryptionMemoryUsage} árbán vannak a memóriahasználat eredmények. Szokás szerint itt is nulla az egyes tesztesetekben a szórás. A két kiugrástól eltekintve a Keccak-256 algoritmusban, úgy viselkednek mint a konstans függvények. Memória tekintetében egyértelműen a RIPEMD-160 a leghatékonyabb. Viszont mindent összevetve nem lehet ilyen egyértelmű választ adni. Leszámítva, hogy a BLAKE2B algoritmusnak kell a legtöbb memória és idő. Ez által határozottan utolsó helyre tévő őt a versenyben.
+
+% Kötelező helyű ábra beszúrása.
+\begin{figure}[H]
+    \centering % Az ábra középre igazítása.
+    \includegraphics[width=0.8\textwidth]{Figures/HashingEncryptionMemoryUsage.png} % Kép beszúrása.
     \caption{A hasító algoritmusokkal végzett titkosítás memóriahasználat eredményei} % Az ábra neve.
     \label{fig:HashingEncryptionMemoryUsage} % Az ábra referenciája.
 \end{figure}
