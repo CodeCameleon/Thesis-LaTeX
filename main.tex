@@ -590,34 +590,42 @@ A saját algoritmusom minden diagramon kék színnel van jelölve. Véleményem 
 
 \section{Aszimmetrikus algoritmusok} % Sorszámozott alcím létrehozása.
 
+Az aszimmetrikus algoritmusoknál is a futási idővel kezdjük. Ezek az ábrák jobban átláthatóak, mert kevesebb ilyen fajta algoritmus lett tesztelve. Kezdjük a titkosítással, ez a \ref{fig:AsymmetricEncryptionRunTime} ábrán látható. Megfigyelhető, hogy az RSA algoritmusnak itt több időre van szüksége, mint a versenytársainak. Ezen kívül az egyes teszteknek is nagy a szórásuk. Az ElGamal és az ECIES algoritmusoknak sokkal kisebb szórása van. A jelentősen gyorsabb futástól nem is beszélve.
+
 % Kötelező helyű ábra beszúrása.
 \begin{figure}[H]
     \centering % Az ábra középre igazítása.
-    \includegraphics[width=\textwidth]{Figures/AsymmetricEncryptionRunTime.png} % Kép beszúrása.
+    \includegraphics[width=0.8\textwidth]{Figures/AsymmetricEncryptionRunTime.png} % Kép beszúrása.
     \caption{Az aszimmetrikus algoritmusokkal végzett titkosítás futási idő eredményei} % Az ábra neve.
     \label{fig:AsymmetricEncryptionRunTime} % Az ábra referenciája.
 \end{figure}
 
+Áttérve a visszafejtésre a \ref{fig:AsymmetricDecryptionRunTime} ábrára, itt már az ECIES lesz az, aki kiemelkedik a többi közül. Neki kell a legtöbb idő. Az RSA pedig át veszi a vezetést és ő lesz a leggyorsabb a három közül. Ezzel rávilágítva, hogy ő inkább olyan helyeken hatékony ahol több a visszafejtés, mint a titkosítás. Az ECIES algoritmust viszont pont az ellenkezők esetben érdemes használni. Az ElGamal pedig akkor a legjobb választás a nagyjából azonos mennyiségben van titkosítás és visszafejtés. Tehát futási idő tekintetévben, ezek elég egyértelműen eldönthetőek.
+
 % Kötelező helyű ábra beszúrása.
 \begin{figure}[H]
     \centering % Az ábra középre igazítása.
-    \includegraphics[width=\textwidth]{Figures/AsymmetricDecryptionRunTime.png} % Kép beszúrása.
+    \includegraphics[width=0.8\textwidth]{Figures/AsymmetricDecryptionRunTime.png} % Kép beszúrása.
     \caption{Az aszimmetrikus algoritmusokkal végzett visszafejtés futási idő eredményei} % Az ábra neve.
     \label{fig:AsymmetricDecryptionRunTime} % Az ábra referenciája.
 \end{figure}
 
-% Kötelező helyű ábra beszúrása.
-\begin{figure}[H]
-    \centering % Az ábra középre igazítása.
-    \includegraphics[width=\textwidth]{Figures/AsymmetricEncryptionMemoryUsage.png} % Kép beszúrása.
-    \caption{Az aszimmetrikus algoritmusokkal végzett titkosítás memóriahasználat eredményei} % Az ábra neve.
-    \label{fig:AsymmetricEncryptionMemoryUsage} % Az ábra referenciája.
-\end{figure}
+Hasonlóan a szimmetrikus algoritmusok memóriahasználat eredményeihez. A szórás itt is egy nem létező fogalom. A \ref{fig:AsymmetricEncryptionMemoryUsage} ábrán látható a titkosítás során használt memória mennyisége. Az RSA és az ElGamal algoritmusok teljesítmény nagyon hasonló és rendkívül stabil. Leszámítva a két kiugrást az RSA algoritmusnál. Az ECIES algoritmus alacsonyabban indul, viszont közelíti a társai értékeit az intervallum végénél.
 
 % Kötelező helyű ábra beszúrása.
 \begin{figure}[H]
     \centering % Az ábra középre igazítása.
-    \includegraphics[width=\textwidth]{Figures/AsymmetricDecryptionMemoryUsage.png} % Kép beszúrása.
+    \includegraphics[width=0.8\textwidth]{Figures/AsymmetricEncryptionMemoryUsage.png} % Kép beszúrása.
+    \caption{Az aszimmetrikus algoritmusokkal végzett titkosítás memóriahasználat eredményei} % Az ábra neve.
+    \label{fig:AsymmetricEncryptionMemoryUsage} % Az ábra referenciája.
+\end{figure}
+
+A visszafejtés a \ref{fig:AsymmetricDecryptionMemoryUsage} ábrán látható és szintén nagy hasonlóságot mutat a szimmetrikus algoritmusokhoz. A két kritikus pont itt is a 10 és 60 bájtos tesztesetek. Meglepően a legnagyobb kilengés itt az ECIES algoritmusban van, még az ElGamal itt is stabilitást mutat. Ezeket leszámítva teljes átfedésben vannak az algoritmusok egyenesei. Ezek az eredmények alapján, én az ElGamal algoritmust emelném ki. Főként a rendkívüli stabilitása miatt a futási időben és a memóriahasználatban is. A másik két algoritmus nagyobb kilengéseket is mutatott. Ami meglátásom szerint nem teszi őket olyan megbízhatóvá.
+
+% Kötelező helyű ábra beszúrása.
+\begin{figure}[H]
+    \centering % Az ábra középre igazítása.
+    \includegraphics[width=0.8\textwidth]{Figures/AsymmetricDecryptionMemoryUsage.png} % Kép beszúrása.
     \caption{Az aszimmetrikus algoritmusokkal végzett visszafejtés memóriahasználat eredményei} % Az ábra neve.
     \label{fig:AsymmetricDecryptionMemoryUsage} % Az ábra referenciája.
 \end{figure}
