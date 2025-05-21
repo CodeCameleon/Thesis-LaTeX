@@ -127,7 +127,7 @@ Titkosítási módszerek a jövő blokkláncai számára és ezek összehasonlí
 
 \section*{A megadott feladat megfogalmazása} % Sorszám nélküli alcím létrehozása.
 
-A feladat a különböző titkosítási algoritmusok összehasonlítás, különböző szempontok alapján. Továbbá egy saját algoritmus fejlesztése és összehasonlítás a már létező és aktívan használt algoritmusokkal.
+A feladat a különböző titkosítási algoritmusok összehasonlítása, különböző szempontok alapján. Továbbá egy saját algoritmus fejlesztése és összehasonlítás a már létező és aktívan használt algoritmusokkal.
 
 \section*{Megoldási mód} % Sorszám nélküli alcím létrehozása.
 
@@ -149,21 +149,21 @@ C\#, ASP.NET Core, NUnit, Chart.js, blokkláncok, kriptográfia
 
 \section{Motiváció} % Sorszámozott alcím létrehozása.
 
-Mindig is akartam valami maradandót alkotni. Valami olyat, ami nem csak egy kézzel fogható tárgy. Valamit, amire mindig büszkén tudok visszanézi. Még akkor is ha nem a legtökéletesebb munkám lenne. Egy olyan eszmei értéket, amit bárki tud használni kedve szerint. Talán úgy ahogy én elképzeltem. De az is lehet, hogy csak alapul használják és javítanak rajta. Már ez is nagy öröm lenne számomra. Mert látnám, hogy mások szerint is jól sikerült az alkotásom, hiszen mi másért használnak?
+Mindig is akartam valami maradandót alkotni. Valami olyat, ami nem csak egy kézzel fogható tárgy. Valamit, amire mindig büszkén tudok visszanézi. Még akkor is ha nem a legtökéletesebb munkám lenne. Egy olyan eszmei értéket, amit bárki tud használni kedve szerint. Talán úgy ahogy én elképzeltem. De az is lehet, hogy csak alapul használják és javítanak rajta. Már ez is nagy öröm lenne számomra. Mert látnám, hogy mások szerint is jól sikerült az alkotásom, hiszen mi másért használnák?
 
 Ez volt az hajtóerő, aminek hatására elkezdtem egy saját titkosító algoritmust fejleszteni. Hiszen másoknak is sikerült már előttem. Nem is egy ilyen algoritmus van amit a mindennapi életünkben szinte állandó jelleggel használunk. Mégsem mondjuk soha sem egy algoritmusra, hogy ez a legjobb, vagy éppen az a másik. Ilyen tekintetben szerintem ezek az algoritmusok egy kicsit misztikus dolgok. Mivel nehéz eldönteni, hogy kettő közül melyik a jobb. Mert mindig az a kérdés merül fel, hogy milyen értelemben jobb?
 
-Ebben a szakdolgozatban megpróbálom részletesen összehasonlítani az ismertebb titkosító algoritmusokat különböző szempontok alapján. Lehetőleg ezzel érthetőbbé válik ezen algoritmusok világa egy átlagos ember vagy fejlesztő számára. Továbbá kifejtem a saját algoritmusom fejlesztésének folyamatát. Bele érte minden akadályt és nehézséget is, amibe ennek során beleütköztem.
+Ebben a szakdolgozatban megpróbálom részletesen összehasonlítani az ismertebb titkosító algoritmusokat különböző szempontok alapján. Lehetőleg ezzel érthetőbbé válik ezen algoritmusok világa egy átlagos ember vagy fejlesztő számára. Továbbá kifejtem a saját algoritmusom fejlesztésének folyamatát. Beleértve minden akadályt és nehézséget is, amibe ennek során beleütköztem.
 
 \section{Kriptográfia} % Sorszámozott alcím létrehozása.
 
-Az emberek szeretik biztonságban tudni a bizalmas dolgaikat. Legyen az egy betöréses támadás vagy egyszerű adatküldés esetén. Ez a probléma ihlette meg a kriptográfiai algoritmusokat. Egy ilyen algoritmus egy nyílt szöveget vár bemenetként, majd egy kulcs segítségével egy titkosított szöveget hozz létre a kapott szövegből. Ez minden kriptográfiai algoritmus alapelve.
+Az emberek szeretik biztonságban tudni a bizalmas dolgaikat. Legyen az egy betöréses támadás vagy egyszerű adatküldés esetén. Ez a probléma ihlette meg a kriptográfiai algoritmusokat. Egy ilyen algoritmus egy nyílt szöveget vár bemenetként, majd egy kulcs segítségével egy titkosított szöveget hoz létre a kapott szövegből. Ez minden kriptográfiai algoritmus alapelve.
 
 Fontos kiemelni, hogy a kriptográfiai algoritmusokat \cite{szteCryptography} több módon tudjuk csoportosítani. Az első lehetőség az, hogy az elvégzett műveletek alapján csoportosítjuk őket. Így megkülönböztetjük a keverő, helyettesítő és produkciós titkosító algoritmusokat.
 
 A keverő algoritmusoknál a titkosított szöveg egyszerűen az eredeti szöveg karaktereinek permutációja. Értelem szerűen ez nem nyújtja a legnagyobb biztonságot. Tekintve, hogy a permutáció lehet akár az eredeti szöveg is. Igaz, ez inkább a rövid szövegek esetén valószínűbb, hogy bekövetkezik.
 
-A helyettesítő algoritmusok a nyílt szöveg karaktereit a titkosított szöveg karaktereivel helyettesítik. Ez történhet egyesével vagy akár blokkokban is. Ezek az algoritmusok már nagyobb biztonságot nyújtanak, mint a keverő algoritmusok. De ez sem egy új keletű dolog, a németek Enigma gépe is ezen az elven alapszik. A ki jártasabb a történelemben az tudja, hogy nagyon sokáig nem tudták feltörni az Enigmával küldött üzeneteket.
+A helyettesítő algoritmusok a nyílt szöveg karaktereit a titkosított szöveg karaktereivel helyettesítik. Ez történhet egyesével vagy akár blokkokban is. Ezek az algoritmusok már nagyobb biztonságot nyújtanak, mint a keverő algoritmusok. De ez sem egy új keletű dolog, a németek Enigma gépe is ezen az elven alapszik. Aki jártasabb a történelemben az tudja, hogy nagyon sokáig nem tudták feltörni az Enigmával küldött üzeneteket.
 
 A produkciós algoritmusok pedig a kettő elv kombinációján alapszanak. Ezek bizonyultak eddig a leghatékonyabb titkosítási módnak. A napjainkban használt algoritmusok is ide tartoznak. A szakdolgozat keretein belül ilyen algoritmusokról lesz részletesebben szó.
 
@@ -518,7 +518,7 @@ A mostani megvalósítás a MathCrypt nevet viseli. A pontos szerkezete az \ref{
 
 \section{Jövőbeli tervek} % Sorszámozott alcím létrehozása.
 
-Az algoritmusom rengeteg változtatáson ment már keresztül. Ennek ellenére még közel sincs készen. Itt most nem arra gondolok, hogy teljesítményben lemaradottabb a versenytársaival szemben. Hanem a lehetséges fejlesztési irányokra és funkciókra.
+Az algoritmusom rengeteg változtatáson ment már keresztül. Az elkészült verzió számos irányban továbbfejleszthető. Itt most nem arra gondolok, hogy teljesítményben lemaradottabb a versenytársaival szemben. Hanem a lehetséges fejlesztési irányokra és funkciókra.
 
 Az egyik ilyen ötletem lehetővé tenné, hogy visszafejtés nélkül megváltoztatjuk a szöveget kódoló kulcsot. Nem olyan értelemben, hogy egy teljesen más kulccsal lehetne elolvasni. Ez integritás szempontjából nem lenne a legjobb döntés. Itt arra kell, gondolni, hogy egy módosító számmal el lehet tolni a már lekódolt szöveg számjegyeit. Valamint ezzel a számmal el kell tolni a kulcs sorait és oszlopait is. Kicsit úgy mint ha a kulcs egy Rubik kocka lenne. Gyalogosan papíron már próbáltam és működik. Viszont a programkód megvalósítása lehet nem lesz a legegyszerűbb. Továbbá meg kell vizsgálni, hogy pontosan milyen hatásokat válthat ki a funkció megvalósítása. Esetlegesen törhetőbbé teszi-e az algoritmust vagy idéz-e valamit más nemkívánatos hatást.
 
